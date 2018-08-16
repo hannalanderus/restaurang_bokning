@@ -1,6 +1,8 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
+
+import 'react-datepicker/dist/react-datepicker.css';
 import { Booking } from './booking.js';
 import {
   BrowserRouter as Router,
@@ -23,6 +25,7 @@ const Home = () => (
     <div>
      <h2>Home</h2>
      <Booking />
+    <DatePicker />
     </div>
 )
 
