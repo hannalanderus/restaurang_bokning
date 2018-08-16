@@ -6,11 +6,13 @@ export class Booking extends React.Component {
         fetch('http://localhost:8888/phpfiles/bokningsapi.php')
             .then((response) => response.json())
             .then((bokning) => {
-                console.log(bokning);
+            console.log(bokning);
             });
         
         return(
             <div>Fetched stuff</div>
-        )      
+            
+        )
+        
     };
 };
