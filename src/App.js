@@ -1,14 +1,29 @@
-import React from 'react'
+import React from 'react';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+import { Booking } from './booking.js';
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom'
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
+/*export class App extends React.Component {
+    render() {
+        return(
+        <div>
+    <Booking />
+    
   </div>
+        );
+    }
+}*/
+
+const Home = () => (
+    <div>
+     <h2>Home</h2>
+     <Booking />
+    </div>
 )
 
 const About = () => (
