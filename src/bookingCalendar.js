@@ -16,47 +16,51 @@ import 'react-datepicker/dist/react-datepicker.css';
  /* handleChange updates the initial state with selected date when clicked */
   handleChange(date) {
   	console.log("Running event handler");
+  	
     this.setState({
       startDate: date
     
     });
-    let bookingDate = date.format('YYYY/MM/DD');
-   
-
-   /*let data = {
-    method: 'POST',
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-        'Date': bookingDate,
-    }),
-}*/
-
+    let bookingDate = date.format('YYYY-MM-DD');
+    console.log(bookingDate)
 	fetch('http://localhost:8888/phpfiles/bokningsapi.php?date=' + bookingDate)
 	.then((response) => response.json())
-	.then((responseJson) => {
-	 
-
+	.then((responsejson) => {
+	 	
 	})
 	.catch((error) => {
 	    console.error(error);
 	});
 
 
-
     console.log(date);
     console.log(bookingDate);
   }
+
+  test() {
+  	
+  	console.log('hej')
+  
+
+  }
+
  
   render() {
-    return <DatePicker
-        dateFormat="YYYY/MM/DD"
-        selected={this.state.startDate}
-        onChange={this.handleChange}
-    />;
-  }
+    return (
+    	<div>
+	    	<div>
+		    	<DatePicker
+		        dateFormat="YYYY/MM/DD"
+		        selected={this.state.startDate}
+		        onChange={this.handleChange}
+		        
+		   		 />
+	    		<button id="searchButton" onClick={ () => this.test() }>Sök</button>
+	   		 </div>
+	   		
+   		 </div>
+    	)
+  	}
 
 };
 

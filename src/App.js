@@ -7,6 +7,7 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import Sittings from './sittings';
 
 /*export class App extends React.Component {
     render() {
@@ -24,6 +25,7 @@ const Home = () => (
      <h2>Home</h2>
      <Booking />
     <BookingCalendar />
+    <Sittings />
     </div>
 )
 

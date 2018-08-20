@@ -13,21 +13,36 @@ $currentDate = $_GET['date'];
 
 $resultSitting = mysqli_query($connect, "SELECT * FROM bokning WHERE datum= '$currentDate'");
 
+/*Global variable*/	
+ $earlyBookings = 0;
+ $lateBookings = 0;
+ //$output = array();
 
+/*Loops through bookings database filtering bookings*/
 while($row = mysqli_fetch_assoc($resultSitting)){
+    $output[] = $row;
 
-	var_dump($row);
-    $output[]=$row;
+    //var_dump($row);
+
     if($row["tid"] == '18:00:00') {
-    	echo 'hej';
+        $earlyBookings += 1;
     }
-    else if($row["tid"] == '21:00:00') {
-    	echo 'hejdå';
+    else {
+        $lateBookings += 1;
     }
 }
 
-print(json_encode($output, JSON_PRETTY_PRINT));
-mysqli_close($connect);
+$myNewFancyValues = (object) [
+    'bookings' => $output,
+    'earlyBookings' => $earlyBookings,
+    'lateBookings' => $lateBookings
+  ];
 
+//var_dump($earlyBookings);
+//echo $earlyBookings;
+
+
+print(json_encode($myNewFancyValues, JSON_PRETTY_PRINT));
+mysqli_close($connect);
 
 ?>
