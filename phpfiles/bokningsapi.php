@@ -8,13 +8,26 @@ if(!$connect){
     die('could not connect: ' . mysqli_connect_error());
 }
 
-$result = mysqli_query($connect, "SELECT * FROM bokning");
+$currentDate = $_GET['date'];
 
-while($row = mysqli_fetch_assoc($result)){
+
+$resultSitting = mysqli_query($connect, "SELECT * FROM bokning WHERE datum= '$currentDate'");
+
+
+while($row = mysqli_fetch_assoc($resultSitting)){
+
+	var_dump($row);
     $output[]=$row;
+    if($row["tid"] == '18:00:00') {
+    	echo 'hej';
+    }
+    else if($row["tid"] == '21:00:00') {
+    	echo 'hejdå';
+    }
 }
 
 print(json_encode($output, JSON_PRETTY_PRINT));
 mysqli_close($connect);
+
 
 ?>
