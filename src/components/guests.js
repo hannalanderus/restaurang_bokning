@@ -6,7 +6,7 @@ class Guests extends React.Component {
 		return(
 			<div>
 				<form> 
-					<select class="form-control" id="guestsAmount">
+					<select className="form-control" id="guestsAmount">
 					      <option>1</option>
 					      <option>2</option>
 					      <option>3</option>
