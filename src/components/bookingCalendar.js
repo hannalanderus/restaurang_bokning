@@ -24,8 +24,10 @@ import 'react-datepicker/dist/react-datepicker.css';
     let bookingDate = date.format('YYYY-MM-DD');
     console.log(bookingDate)
 	fetch('http://localhost:8888/phpfiles/bokningsapi.php?date=' + bookingDate)
-	.then((response) => response.json())
-	.then((responsejson) => {
+		.then((response) => response.json())
+		.then((responsejson) => {
+
+			
 	 	
 	})
 	.catch((error) => {
@@ -55,7 +57,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 		        onChange={this.handleChange}
 		        
 		   		 />
-	    		<button id="searchButton" onClick={ () => this.test() }>Sök</button>
+	    		<button id="searchButton" onClick={ () => this.test() }>Search</button>
 	   		 </div>
 	   		
    		 </div>

@@ -1,28 +1,28 @@
-.App {
-  text-align: center;
+#headerWrapper{
+ 
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+#headerContent{
+ background-image: url("./images/juanafood.jpg");
+ height: 800px;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ position: relative;
+ 
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+#restaurantTitle {
+  display: flex;
+  flex-direction: column;
   color: white;
+  margin: 0 auto;
+  text-align: center;
+
+
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+#restaurantTitle h2 {
+  margin-top: -2%;
+  font-size: 1em;
 }

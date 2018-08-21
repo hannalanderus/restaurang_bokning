@@ -32,7 +32,7 @@ while($row = mysqli_fetch_assoc($resultSitting)){
     }
 }
 
-$myNewFancyValues = (object) [
+$sittingsStatus = (object) [
     'bookings' => $output,
     'earlyBookings' => $earlyBookings,
     'lateBookings' => $lateBookings
@@ -42,7 +42,7 @@ $myNewFancyValues = (object) [
 //echo $earlyBookings;
 
 
-print(json_encode($myNewFancyValues, JSON_PRETTY_PRINT));
+print(json_encode($sittingsStatus, JSON_PRETTY_PRINT));
 mysqli_close($connect);
 
 ?>
