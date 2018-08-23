@@ -2,6 +2,9 @@ import React from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+import EarlySittings from './earlySittings';
+import LateSittings from './lateSittings';
+import Guests from './guests';
 
  class BookingCalendar extends React.Component {
 /*Todays date */
@@ -9,6 +12,9 @@ import 'react-datepicker/dist/react-datepicker.css';
     super(props)
     this.state = {
       startDate: moment(),
+      earlySittingsButton: false,
+      lateSittingsButton: false,
+
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -40,25 +46,58 @@ import 'react-datepicker/dist/react-datepicker.css';
 };
 
 checkAvailableSittings (response){
-  if(response.earlyBookings < 15){
+
+
+  if(response.earlyBookings === 3){
     console.log('knapp 18:00');
-  }
+    this.setState({
+      earlySittingsButton: true
+    });
+    }
 
   if(response.earlyBookings === 15) {
     console.log('18:00 är fullt!');
+     this.setState({
+      earlySittingsButton: false
+    });
   }
 
   if(response.lateBookings < 15){
     console.log('knapp 21:00');
+     this.setState({
+      lateSittingsButton: true
+    });
   }
 
   if(response.lateBookings === 15){
     console.log('21:00 är fullt!');
+     this.setState({
+      lateSittingsButton: false
+    });
   }
 };
 
+numberofguest(){
+  let selectedOption = document.getElementById('selectedId');
+  let optionValue = selectedOption.options[selectedOption.selectedIndex].value;
+  
+  console.log(optionValue);
+
+}
+
  
   render() {
+
+    let early = '';
+    let late = '';
+
+    if(this.state.earlySittingsButton){
+      early = <EarlySittings />
+    };
+    if(this.state.lateSittingsButton){
+      late = <LateSittings />
+    };
+
     return (
     	<div>
 	    	<div>
@@ -67,7 +106,13 @@ checkAvailableSittings (response){
 		        selected={this.state.startDate}
 		        onChange={this.handleChange}        
 		   		 />
+           <Guests SelectID="selectedId" event={this.numberofguest} />
 	   		 </div>
+         
+         <div>
+           {early}
+           {late}
+         </div>
 	   		
    		 </div>
     	)

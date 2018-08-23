@@ -1,25 +1,18 @@
-import React from 'react';
-import Guestinfo from './guestinfo';
-class Guests extends React.Component {
-	render(){
+import React, { Component } from 'react';
 
+const Guests = (props) => {
 		return(
 			<div>
-				<form> 
-					<select className="form-control" id="guestsAmount">
-					      <option>1</option>
-					      <option>2</option>
-					      <option>3</option>
-					      <option>4</option>
-					      <option>5</option>
-					      <option>6</option>
+					<select id={props.SelectID} className="form-control" onChange={props.event}>
+					      <option value="1">1</option>
+					      <option value="2">2</option>
+					      <option value="3">3</option>
+					      <option value="4" >4</option>
+					      <option value="5">5</option>
+					      <option value="6">6</option>
 				    </select>
-				</form>
-				<Guestinfo />
 			</div>
 		)
-	}
-
 };
 
 export default Guests;

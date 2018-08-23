@@ -7,6 +7,9 @@ class Guestinfo extends React.Component {
       name: "",
       email: "",
       phoneNumber: "",
+      date: "",
+      sitting: "",
+      guests: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this); 	
@@ -26,7 +29,11 @@ postInfo() {
 	let data = {
     name: this.state.name,
     email: this.state.email,
-    phoneNumber: this.state.phoneNumber 
+    phoneNumber: this.state.phoneNumber,
+    date: "",
+    sitting: "",
+    guests: ""
+
 	}
 
 	console.log(data)
