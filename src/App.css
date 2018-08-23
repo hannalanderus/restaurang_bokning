@@ -1,7 +1,13 @@
-#headerWrapper{
- 
+body {
+    background-color: rgba(153,102,0,0.04);
 }
-
+h1, h2, h3 {
+    font-weight: bold;
+    font-family: Georiga;
+}
+p {
+    font-family: Palatino Linotype;
+}
 #headerContent{
  background-image: url("./images/juanafood.jpg");
  height: 800px;
@@ -9,20 +15,129 @@
  background-repeat: no-repeat;
  background-size: cover;
  position: relative;
+ margin-left: 1%;
+ margin-right: 1%;
  
 }
-
 #restaurantTitle {
   display: flex;
   flex-direction: column;
   color: white;
   margin: 0 auto;
   text-align: center;
-
-
 }
-
 #restaurantTitle h2 {
-  margin-top: -2%;
-  font-size: 1em;
+  margin-top: -2.5%;
+  font-size: 1.5em;
+}
+#restaurantTitle h1 {
+  font-size: 3em;
+}
+#restaurntImage img {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 70%;
+    height: 100%;
+    
+}
+#restaurntImage {
+    height: 600px;
+}
+.descriptionBox {
+    text-align: center;
+    margin-top: 5%; 
+}
+.descriptionBox h2 {
+    font-size: 2.6em;
+}
+.descriptionBox p {
+    margin-left: 18%;
+    margin-right: 18%;
+    font-size: 1.2em;
+}
+.scroll {
+    height: 250px;
+    margin-bottom: 7%;
+    margin-top: 5%;
+    text-align: center;
+    color: #006600;
+    font-size: 1.2em;
+}
+#scrollLine {
+    transform: rotate(90deg);
+    width: 120px;
+    margin-top: 80px;
+    border-width: 3px;
+    border-color: #ff6600;
+}
+#theRestaurantImage img {
+    display: flex;
+    margin: 0 auto;
+    width: 45%;
+    height: 100%;
+}
+#theRestaurantImage p, #theBarImage p {
+    text-align: center;
+    font-size: 1.6em;
+}
+#textUnderline {
+width: 60px;
+margin-bottom: 5%;
+}
+#theBarImage img {
+    display: flex;
+    margin: 0 auto;
+    width: 50%;
+    height: 100%;
+ 
+}
+#theBarbox {
+    display: flex;
+    flex-direction: row;
+    margin-top: -5%;
+}
+.martini {
+    width: 30%;
+    margin-top: 18%;
+    padding-left: 5%;
+    height: auto;
+    font-size: 0.6em;
+}
+.martiniQuality {
+    width: 30%;
+    padding-right: 5%;
+    margin-top: 25%;
+    height: auto;
+    font-size: 0.6em;       
+}
+.martini h3, .martiniQuality h3 {
+    text-align: center;
+    font-size: 1.8em;
+}
+#cocktailLine {
+    transform: rotate(90deg);
+    height: 170px;
+    margin-top: 13.4%;
+    border-width: 1.5px;
+    border-color: red;
+}
+#bestQualityLine {
+    transform: rotate(90deg);
+    height: 170px;
+    margin-top: 20.3%;
+    border-width: 1.5px;
+    border-color: red;
+}
+footer {
+    margin-top: 10%;
+    background-color: rgba(153,102,0,0.15);
+}
+footer ul {
+    list-style: none;
+    text-align: center;
+}
+footer li {
+    display: inline-block;
+    padding: 30px;
 }

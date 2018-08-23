@@ -1,4 +1,7 @@
 import React from 'react';
+import StartPageHeader from './header';
+import StartPageMain from './main';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -6,13 +9,16 @@ import {
 } from 'react-router-dom'
 
 
-export class StartPage extends React.Component {
+class StartPage extends React.Component {
     render() {
         
         return(
-        <div>
-        </div>
+          <div>
+            <StartPageHeader />
+            <StartPageMain />
+          </div>
         );
-    
     }
-}
+};
+
+export default StartPage;
