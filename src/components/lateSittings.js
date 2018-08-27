@@ -1,9 +1,12 @@
 import React from 'react';
 
-function LateSittings () {
+const LateSittings = (props) => {
 	return(
-		<button id="LateButton">21:00</button>
+		<button id={props.LateButtonID} onClick={props.event} value="21:00:00">21:00</button>
 		)
 	}
 
 export default LateSittings;
+
+
+

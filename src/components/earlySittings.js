@@ -1,8 +1,8 @@
 import React from 'react';
 
-function EarlySittings () {
+const EarlySittings = (props) => {
 	return(
-		<button id="earlyButton">18:00</button>
+		<button id={props.EarlyButtonID} onClick={props.event} value="18:00:00">18:00</button>
 		)
 	}
 

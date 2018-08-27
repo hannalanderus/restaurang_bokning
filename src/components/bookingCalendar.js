@@ -7,83 +7,32 @@ import EarlySittings from './earlySittings';
 import LateSittings from './lateSittings';
 import Guests from './guests';
 
- class BookingCalendar extends React.Component {
+export class BookingCalendar extends React.Component {
 /*Todays date */
- constructor (props) {
-    super(props)
-    this.state = {
-      startDate: moment(),
-      earlySittingsButton: false,
-      lateSittingsButton: false,
-
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
  
- /* handleChange updates the initial state with selected date when clicked */
-  handleChange(date) {
-    console.log("Running event handler");
-      this.setState({
-      startDate: date   
-    });
-
-    let bookingDate = date.format('YYYY-MM-DD');
-    console.log(bookingDate)
-   
-     fetch('http://localhost:8888/phpfiles/bokningsapi.php?date=' + bookingDate)
-    .then((response) => response.json())
-    .then((response) => {
-      this.checkAvailableSittings(response);
-
-    })
-    .catch((error) => {
-      console.error(error);
-    })
 
 
-    console.log(date);
-    console.log(bookingDate);
 
-};
-
-checkAvailableSittings (response){
+//funktion som kallar på handleChange i booking.js
 
 
-  if(response.earlyBookings === 3){
-    console.log('knapp 18:00');
-    this.setState({
-      earlySittingsButton: true
-    });
-    }
-
-  if(response.earlyBookings === 15) {
-    console.log('18:00 är fullt!');
-     this.setState({
-      earlySittingsButton: false
-    });
-  }
-
-  if(response.lateBookings < 15){
-    console.log('knapp 21:00');
-     this.setState({
-      lateSittingsButton: true
-    });
-  }
-
-  if(response.lateBookings === 15){
-    console.log('21:00 är fullt!');
-     this.setState({
-      lateSittingsButton: false
-    });
-  }
-};
 
 numberofguest(){
-  let selectedOption = document.getElementById('selectedId');
+  let selectedOption = document.getElementById('guestsAmount');
   let optionValue = selectedOption.options[selectedOption.selectedIndex].value;
   
   console.log(optionValue);
 
+}
+
+showEarlyTime(){
+ let EarlyButtonValue = document.getElementById('EarlyButtonID').value;
+ console.log(EarlyButtonValue);
+}
+
+showLateTime(){
+  let LateButtonValue = document.getElementById('LateButtonID').value;
+  console.log(LateButtonValue);
 }
 
  
@@ -92,22 +41,22 @@ numberofguest(){
     let early = '';
     let late = '';
 
-    if(this.state.earlySittingsButton){
-      early = <EarlySittings />
+    if(this.props.earlySittingsButton){
+      early = <EarlySittings EarlyButtonID='EarlyButtonID' event={this.showEarlyTime} />
     };
-    if(this.state.lateSittingsButton){
-      late = <LateSittings />
-    };
+    if(this.props.lateSittingsButton){
+      late = <LateSittings LateButtonID='LateButtonID' event={this.showLateTime} />
+    }; 
 
     return (
       <div>
         <div>
-        <Guests SelectID="selectedId" event={this.numberofguest} />
+        <Guests SelectID="guestsAmount" event={this.numberofguest} />
         <label>Date</label>
           <DatePicker
             dateFormat="YYYY/MM/DD"
-            selected={this.state.startDate}
-            onChange={this.handleChange}        
+            selected={this.props.startDate}
+            onChange={this.props.handleChange}        
            />
          </div>
          
