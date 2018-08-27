@@ -1,4 +1,5 @@
 import React from 'react';
+import ChosenSitting from './chosenSitting';
 
 class Guestinfo extends React.Component {
  constructor (props) {
@@ -50,13 +51,14 @@ postInfo() {
 render(){
 	return(
 		<div>
-			<form onSubmit={this.handleSubmit}>	 
-				<input type="text" name="name" placeholder="Full name" value={this.state.value} onChange={this.handleChange} />
-				<input type="text" name="email" placeholder="email" onChange={this.handleChange}/>
-				<input type="text" name="phoneNumber" placeholder="Phone number" onChange={this.handleChange}/>
-				<input type="submit" value="Send"/>
-			</form>
-		</div>
+      <ChosenSitting />
+            <form id="reservationInfo" onSubmit={this.handleSubmit}>     
+                <input type="text" name="name" placeholder="Full name" value={this.state.value} onChange={this.handleChange} />
+                <input type="text" name="email" placeholder="Email" onChange={this.handleChange}/>
+                <input type="text" name="phoneNumber" placeholder="Phone number" onChange={this.handleChange}/>
+                <input type="submit" value="Send" className="submitButton"/>
+            </form>
+        </div>
 	)
 }
 

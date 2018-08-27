@@ -1,11 +1,14 @@
 import React from 'react';
-import BookingCalendar from './bookingCalendar';
- 
+import BookingHeader from './headerBooking';
+import Footer from './footer';
+import BookingTitle from './bookingTitle';
+import BookingDiv from './bookingDiv';
 
 export class Booking extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
+        sittings: [],
         };
 
     }
@@ -13,11 +16,12 @@ export class Booking extends React.Component {
     render() {
         return (
             <div>
-                <BookingCalendar />
-                
+                <BookingHeader />
+                <BookingTitle />
+                <BookingDiv />
+                <Footer />
             </div>
         )
     }
   
 };
-

@@ -1,7 +1,7 @@
 body {
     background-color: rgba(153,102,0,0.04);
 }
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     font-family: Georiga;
 }
@@ -10,7 +10,7 @@ p {
 }
 #headerContent{
  background-image: url("./images/juanafood.jpg");
- height: 800px;
+ height: 700px;
  background-position: center;
  background-repeat: no-repeat;
  background-size: cover;
@@ -140,4 +140,143 @@ footer ul {
 footer li {
     display: inline-block;
     padding: 30px;
+}
+#headerContact {
+     background-image: url("./images/contactus.jpg");
+     height: 700px;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     position: relative;
+     margin-left: 1%;
+     margin-right: 1%;
+}
+#makeReservationImage {
+    height: 400px;
+}
+#makeReservationImage img {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 35%;
+    height: 100%;
+}
+#reachUs {
+    margin-top: 5%;
+    margin-bottom: -0.09%;
+    font-weight: bold;
+    font-size: 2em;
+}
+span {
+    font-weight: bold;
+    font-size: 1.4em;
+    text-decoration: underline;
+}
+.openingHours {
+    display: flex;
+    justify-content: row;
+    justify-content: space-around;
+    font-size: 1.5em;
+    margin-top: 5%;
+}
+.openingHours{
+    font-size: 1.2em;
+    text-align: center;
+}
+h5 {
+    text-align: center;
+    font-size: 1.8em;
+}
+.directionTitle h5{
+    margin-bottom: 1.2%;
+}
+#juanalalocaDirections {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 5%;
+    border-top: 1px solid black;
+}
+.adress {
+    padding-right: 20%;
+    font-size: 1.2em;
+    margin-top: 5%;
+}
+.map {
+ background-image: url("./images/mapjuanalaloca.jpg");
+ height: 400px;
+ width: 90%;
+ margin: 0 auto;
+ margin-top: 2.5%;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ position: relative;
+}
+#headerBooking {
+ background-image: url("./images/bartendinghero.jpg");
+ height: 450px;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ position: relative;
+ margin-left: 1%;
+ margin-right: 1%;
+}
+#restaurantTitle p {
+    margin-bottom: -2%;
+    font-size: 1.2em;
+}
+#restaurantTitle {
+    padding-top: 2%;
+}
+.BookingTitle {
+    font-size: 1.6em;
+    text-align: center;
+    margin-top: 6%;
+}
+#bookingDiv {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(153,102,0,0.15);
+    width: 80%;
+    margin: 0 auto;
+    min-height: 400px;
+    padding-top: 5%;
+}
+#guestsAmount {
+    height: 50px;
+    width: 350px;
+    font-size: 1.3em;
+    font-family: Georiga;
+    margin-bottom: 5%;
+}
+#ChosenSitting p {
+    font-size: 1.3em;
+    text-align: center;
+}
+input {
+    height: 45px;
+    width: 337px;
+    font-size: 1.3em;
+    font-family: Georiga;
+    background: rgb(248, 248, 248);
+    border-radius: 5px;
+    border: 1px solid rgb(166, 166, 166);
+    padding-left: 10px;
+    margin-bottom: 5%;  
+}
+#reservationInfo {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+.submitButton {
+    margin-left: 245px;
+    width: 30%;
+     border-color: #25cea4;
+}
+.submitButton:hover {
+     background:#25cea4;
+     color: white;
 }

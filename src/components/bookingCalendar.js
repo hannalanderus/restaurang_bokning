@@ -1,3 +1,4 @@
+
 import React from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
@@ -30,13 +31,13 @@ import Guests from './guests';
     console.log(bookingDate)
    
      fetch('http://localhost:8888/phpfiles/bokningsapi.php?date=' + bookingDate)
-		.then((response) => response.json())
-		.then((response) => {
+    .then((response) => response.json())
+    .then((response) => {
       this.checkAvailableSittings(response);
 
     })
     .catch((error) => {
-	    console.error(error);
+      console.error(error);
     })
 
 
@@ -99,24 +100,25 @@ numberofguest(){
     };
 
     return (
-    	<div>
-	    	<div>
-		    	<DatePicker
-		        dateFormat="YYYY/MM/DD"
-		        selected={this.state.startDate}
-		        onChange={this.handleChange}        
-		   		 />
-           <Guests SelectID="selectedId" event={this.numberofguest} />
-	   		 </div>
+      <div>
+        <div>
+        <Guests SelectID="selectedId" event={this.numberofguest} />
+        <label>Date</label>
+          <DatePicker
+            dateFormat="YYYY/MM/DD"
+            selected={this.state.startDate}
+            onChange={this.handleChange}        
+           />
+         </div>
          
          <div>
            {early}
            {late}
-         </div>
-	   		
-   		 </div>
-    	)
-  	}
+         </div>  
+
+       </div>
+      )
+    }
 
 };
 

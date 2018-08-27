@@ -1,16 +1,18 @@
+
 import React from 'react';
 import NavMenu from './navMenu';
 
-function StartPageHeader (){
+
+function ContactHeader (){
             
         return(
         
                 <div id="headerWrapper">
-                        <header id="headerContent">
-                           <NavMenu />
+                        <header id="headerContact">
+                         <NavMenu />
                                 <div id="restaurantTitle">
-                                <h1>Juana La Loca</h1>
-                                <h2>Restaurant & Bar</h2>
+                                        <h1>Juana La Loca</h1>
+                                        <h2>Restaurant & Bar</h2>
                                 </div>
                         </header>
                 </div>
@@ -19,4 +21,4 @@ function StartPageHeader (){
     
 }
 
-export default StartPageHeader;
+export default ContactHeader;
