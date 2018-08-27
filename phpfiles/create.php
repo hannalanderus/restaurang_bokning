@@ -10,11 +10,23 @@ $array = json_decode(json_encode($guestInformation), True);
 $name = $array['name'];
 $email = $array['email'];
 $phoneNumber = $array['phoneNumber'];
+$date = $array['startDate'];
+$time = $array['time'];
+$numberofGuests = $array['guests'];
 
-$statement = mysqli_query($pdo, "INSERT INTO person (`namn`, `epost`, `telefon`) 
+
+echo json_encode(var_dump($array));
+
+$statementPerson = mysqli_query($pdo, "INSERT INTO person (`namn`, `epost`, `telefon`) 
 	VALUES ('$name', '$email', '$phoneNumber')");
 
+$person_id = mysqli_query($pdo, "SELECT LAST_INSERT_ID() FROM person");
 
-echo json_encode($array);
+$statementBooking = mysqli_query($pdo, "INSERT INTO bokning (`datum`, `tid`, `antal_personer`, `person_id`) 
+VALUES ('$date', '$time', '$numberofGuests', '$person_id')");
+
+
+echo json_encode($person_id);
+
 mysqli_close($pdo);
 ?>

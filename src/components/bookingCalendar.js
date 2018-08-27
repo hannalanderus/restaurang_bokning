@@ -9,31 +9,6 @@ import Guests from './guests';
 
 export class BookingCalendar extends React.Component {
 /*Todays date */
- 
-
-
-
-//funktion som kallar på handleChange i booking.js
-
-
-
-numberofguest(){
-  let selectedOption = document.getElementById('guestsAmount');
-  let optionValue = selectedOption.options[selectedOption.selectedIndex].value;
-  
-  console.log(optionValue);
-
-}
-
-showEarlyTime(){
- let EarlyButtonValue = document.getElementById('EarlyButtonID').value;
- console.log(EarlyButtonValue);
-}
-
-showLateTime(){
-  let LateButtonValue = document.getElementById('LateButtonID').value;
-  console.log(LateButtonValue);
-}
 
  
   render() {
@@ -42,16 +17,16 @@ showLateTime(){
     let late = '';
 
     if(this.props.earlySittingsButton){
-      early = <EarlySittings EarlyButtonID='EarlyButtonID' event={this.showEarlyTime} />
+      early = <EarlySittings EarlyButtonID='EarlyButtonID' event={this.props.showEarlyTime} />
     };
     if(this.props.lateSittingsButton){
-      late = <LateSittings LateButtonID='LateButtonID' event={this.showLateTime} />
+      late = <LateSittings LateButtonID='LateButtonID' event={this.props.showLateTime} />
     }; 
 
     return (
       <div>
         <div>
-        <Guests SelectID="guestsAmount" event={this.numberofguest} />
+        <Guests SelectID="guestsAmount" event={this.props.numberofguest} />
         <label>Date</label>
           <DatePicker
             dateFormat="YYYY/MM/DD"
