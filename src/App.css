@@ -271,6 +271,13 @@ input {
     padding-left: 10px;
     margin-bottom: 5%;  
 }
+
+#checkbox {   
+    width: 10%;
+    margin:0, 15px, 5px,0;
+    padding: 0;
+}
+
 #reservationInfo {
     display: flex;
     text-align: center;
