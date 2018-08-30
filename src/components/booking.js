@@ -7,17 +7,15 @@ import { BookingCalendar } from './bookingCalendar.js';
 import moment from 'moment';
 import DatePicker from 'react-datepicker'; 
 import Guestinfo from './guestinfo'; 
+import ChosenSitting from './chosenSitting';
 
 export class Booking extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
-      
             startDate: moment(),
             time: '',
             guests: "1",
-      
-       
             name: "",
             email: "",
             phoneNumber: "",
@@ -25,6 +23,9 @@ export class Booking extends React.Component {
        
         earlySittingsButton: false,
         lateSittingsButton: false,
+
+        guestFormDiv: '',
+        sittingInformation: ''
 
         };
 
@@ -76,36 +77,47 @@ numberofguest(){
         });
 
 }
+
 showEarlyTime(){
     let date = this.state.startDate;
+    let chosenDate = date.format('ll');
     let guests = this.state.guests;
     let EarlyButtonValue = document.getElementById('EarlyButtonID').value;
+    let guestFormDiv = <Guestinfo handlePersonChange = {this.handlePersonChange}
+                           handlePersonSubmit = {this.handlePersonSubmit} />;
+
+    let sittingInformation = <ChosenSitting chosenDate={chosenDate} chosenTime={EarlyButtonValue} chosenGuests={this.state.guests} />;
 
     this.setState({
-      startDate: date, guests: guests, time: EarlyButtonValue 
+      startDate: date, guests: guests, time: EarlyButtonValue, guestFormDiv: guestFormDiv, sittingInformation: sittingInformation
     });
+
 }   
 
 showLateTime(){
     let date = this.state.startDate;
+    let chosenDate = date.format('ll');
     let guests = this.state.guests;
     let LateButtonValue = document.getElementById('LateButtonID').value;
-    console.log(LateButtonValue);
+    let guestFormDiv = <Guestinfo handlePersonChange = {this.handlePersonChange}
+                           handlePersonSubmit = {this.handlePersonSubmit} />;
+
+    let sittingInformation = <ChosenSitting chosenDate={chosenDate} chosenTime={LateButtonValue} chosenGuests={this.state.guests} />;
 
     this.setState({
-      startDate: date, guests: guests, time: LateButtonValue
+      startDate: date, guests: guests, time: LateButtonValue, guestFormDiv: guestFormDiv, sittingInformation : sittingInformation
     });
 }
 
 checkAvailableSittings (response){
+ console.log(response.earlyBookings);
 
-
-  if(response.earlyBookings === 3){
+  if(response.earlyBookings < 15 ){
     console.log('knapp 18:00');
     this.setState({
       earlySittingsButton: true
     });
-    }
+  }
 
   if(response.earlyBookings === 15) {
     console.log('18:00 är fullt!');
@@ -130,7 +142,6 @@ checkAvailableSittings (response){
 };
 
 
-
 /*Handling person information*/
 handlePersonChange(e) {
       this.setState({ 
@@ -144,21 +155,29 @@ handlePersonSubmit(e) {
 }
 
 postBookingInfo() {
+    let date = this.state.startDate.format('YYYY-MM-DD');
+
     let data = {
         name: this.state.name,
         email: this.state.email,
         phoneNumber: this.state.phoneNumber,
-        startDate: this.state.startDate.format('YYYY-MM-DD'),
+        startDate: date,
         time: this.state.time,
         guests: this.state.guests
     }
 
    return fetch('http://localhost:8888/phpfiles/create.php', {
-        method: "POST",
-        mode: "cors",
-        body: JSON.stringify(data)
+      method: "POST",
+      mode: "cors",
+      body: JSON.stringify(data)
       })
-        .then((response) => response.json())
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      })
 }
 
 
@@ -169,20 +188,22 @@ postBookingInfo() {
         return (
             <div>
                 <BookingHeader />
+                <BookingTitle />
+                {this.state.sittingInformation}
+
+                <div id="bookingDiv">
                 
+                  <BookingCalendar    startDate={this.state.startDate} 
+                                      handleChange={this.handleChange}
+                                      numberofguest={this.numberofguest}
+                                      showEarlyTime={this.showEarlyTime} 
+                                      showLateTime={this.showLateTime}
+                                      earlySittingsButton={this.state.earlySittingsButton}
+                                      lateSittingsButton={this.state.lateSittingsButton}/>
+                  
+                   {this.state.guestFormDiv}
 
-                <BookingCalendar    startDate={this.state.startDate} 
-                                    handleChange={this.handleChange}
-                                    numberofguest={this.numberofguest}
-                                    showEarlyTime={this.showEarlyTime} 
-                                    showLateTime={this.showLateTime}
-                                    earlySittingsButton={this.state.earlySittingsButton}
-                                    lateSittingsButton={this.state.lateSittingsButton}/>
-
-                <Guestinfo handlePersonChange = {this.handlePersonChange}
-                           handlePersonSubmit = {this.handlePersonSubmit}
-
-                />
+                </div>
 
                 <Footer />
             </div>

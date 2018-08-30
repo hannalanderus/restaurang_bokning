@@ -1,12 +1,12 @@
 import React from 'react';
 
 
-function ChosenSitting (){
+const ChosenSitting = (props) => {
             
         return(
         
                 <div id="ChosenSitting">
-                  <p>27th August 6:00 pm 4 persons</p>                          
+                  <p>{props.chosenDate} {props.chosenTime} {props.chosenGuests}</p>                          
                 </div>
         
         );

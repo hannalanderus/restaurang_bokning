@@ -20,13 +20,13 @@ echo json_encode(var_dump($array));
 $statementPerson = mysqli_query($pdo, "INSERT INTO person (`namn`, `epost`, `telefon`) 
 	VALUES ('$name', '$email', '$phoneNumber')");
 
-$person_id = mysqli_query($pdo, "SELECT LAST_INSERT_ID() FROM person");
+
+$person_id = mysqli_insert_id($pdo);
+
 
 $statementBooking = mysqli_query($pdo, "INSERT INTO bokning (`datum`, `tid`, `antal_personer`, `person_id`) 
 VALUES ('$date', '$time', '$numberofGuests', '$person_id')");
 
-
-echo json_encode($person_id);
 
 mysqli_close($pdo);
 ?>

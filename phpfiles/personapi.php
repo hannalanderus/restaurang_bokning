@@ -8,8 +8,8 @@ if(!$connect){
     die('could not connect: ' . mysqli_connect_error());
 }
 
-$result = mysqli_query($connect, "SELECT * FROM bokning INNER JOIN person 
-	ON bokning.person_id = person.id");
+$result = mysqli_query($connect, "SELECT * FROM person INNER JOIN bokning 
+	ON person.id = bokning.person_id");
 
 while($row = mysqli_fetch_assoc($result)){
     $output[]=$row;

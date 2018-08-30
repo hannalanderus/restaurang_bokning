@@ -4,6 +4,7 @@ import StartPage from './home';
 import '../App.css';
 import { Booking } from './booking.js';
 import { PropTypes } from 'react';
+import AdminPage from '../admin/admin.js';
 import {
   BrowserRouter as Router,
   Route,
@@ -18,6 +19,7 @@ class App extends React.Component {
          <Router>
             <div>
                 <Route path="/" component={StartPage} exact/>
+                <Route path="/AdminPage" component={AdminPage} />
                 <Route path="/Booking" component={Booking} />
                 <Route path="/Contact" component={Contact} /> 
               </div>
