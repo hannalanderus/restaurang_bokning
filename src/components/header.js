@@ -1,5 +1,10 @@
 import React from 'react';
 import NavMenu from './navMenu';
+import StartPage from './home'; 
+import { PropTypes } from 'react';
+import {
+  Link
+} from 'react-router-dom';
 
 function StartPageHeader (){
             
@@ -9,7 +14,7 @@ function StartPageHeader (){
                         <header id="headerContent">
                            <NavMenu />
                                 <div id="restaurantTitle">
-                                <h1>Juana La Loca</h1>
+                                <Link to="/"><h1>Juana La Loca</h1></Link>
                                 <h2>Restaurant & Bar</h2>
                                 </div>
                         </header>

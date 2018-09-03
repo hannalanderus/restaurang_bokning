@@ -6,7 +6,7 @@ const ChosenSitting = (props) => {
         return(
         
                 <div id="ChosenSitting">
-                  <p>{props.chosenDate} {props.chosenTime} {props.chosenGuests}</p>                          
+                  <p>{props.chosenDate} {props.chosenTime} {props.chosenGuests} persons</p>                          
                 </div>
         
         );

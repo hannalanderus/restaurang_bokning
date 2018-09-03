@@ -1,6 +1,11 @@
 
 import React from 'react';
 import NavMenu from './navMenu';
+import StartPage from './home'; 
+import { PropTypes } from 'react';
+import {
+  Link
+} from 'react-router-dom';
 
 
 function BookingHeader (){
@@ -12,7 +17,7 @@ function BookingHeader (){
                         <NavMenu />
                                 <div id="restaurantTitle">
                                         <p>Calle 90# 11-13, Bogotá, Colombia</p>
-                                        <h1>Juana La Loca</h1>
+                                         <Link to="/"><h1>Juana La Loca</h1></Link>
                                         <h2>Restaurant & Bar</h2>
                                 </div>
                         </header>

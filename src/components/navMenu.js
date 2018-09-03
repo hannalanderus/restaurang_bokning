@@ -15,9 +15,9 @@ class NavMenu extends React.Component {
         <div>   
            <nav>            
               <ul>
-                <Link to="/">Home</Link>
-                <Link to="/Booking">Reserve</Link>
-                <Link to="/Contact">Contact</Link>
+                <Link to="/">HOME</Link>
+                <Link to="/Booking">RESERVE</Link>
+                <Link to="/Contact">CONTACT</Link>
               </ul>        
             </nav>                       
           </div>  

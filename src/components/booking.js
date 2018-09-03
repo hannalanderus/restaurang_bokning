@@ -8,7 +8,6 @@ import moment from 'moment';
 import DatePicker from 'react-datepicker'; 
 import Guestinfo from './guestinfo'; 
 import ChosenSitting from './chosenSitting';
-import ConfirmationPopUp from './confirmationPopUp';
 
 export class Booking extends React.Component {
     constructor(props) {
@@ -174,7 +173,7 @@ postBookingInfo() {
       })
       .then((response) => response.json())
       .then((response) => {
-        this.confirmationPopUp();
+        console.log(data);
       })
       .catch((error) => {
         console.error(error);
@@ -182,15 +181,6 @@ postBookingInfo() {
 }
 
 
-confirmationPopUp(){
-  let modal = document.getElementById('myModal');
-  modal.style.display = "block";
-}
-
-closeConfirmationPopUp(){
-  let modal = document.getElementById('myModal');
-  modal.style.display = "none";
-}
 
     render() {
         // Skriv logik för att visa bookingCalendar eller guests
@@ -202,7 +192,7 @@ closeConfirmationPopUp(){
                 {this.state.sittingInformation}
 
                 <div id="bookingDiv">
-                  <ConfirmationPopUp modelID='myModal' event={() => this.closeConfirmationPopUp()} />
+                
                   <BookingCalendar    startDate={this.state.startDate} 
                                       handleChange={this.handleChange}
                                       numberofguest={this.numberofguest}

@@ -1,3 +1,4 @@
+/* ----- Typography ----- */
 body {
     background-color: rgba(153,102,0,0.04);
 }
@@ -5,6 +6,12 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     font-family: Georiga;
 }
+
+#restaurantTitle a {
+    color:white;
+    text-decoration: none;
+}
+
 p {
     font-family: Palatino Linotype;
 }
@@ -13,8 +20,76 @@ p {
     display:flex;
     justify-content: space-around;
 }
+
+label {
+    font-family: Palatino Linotype;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+
+
+
+/*----- Navigation ----- */
+nav{
+    padding-top: 0.5%;
+    background: #00000042;
+    padding-bottom: 0.5%;
+}
+nav a{
+    font-size: 0.9em;
+    padding: 20px;
+    color: white;
+    text-shadow: 0.5px 0.5px grey;
+    text-decoration: none;
+}
+
+nav a{
+    display: inline;
+    position: relative;
+    overflow: hidden;
+}
+nav a:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  width: 0;
+  bottom: -5px;
+  background: #ff6600;
+  height: 2px;
+  transition-property: width;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+nav a:hover:after,
+nav a:focus:after,
+nav a:active:after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+
+/*----- Footer ----- */
+footer {
+    margin-top: 10%;
+    background-color: rgba(153,102,0,0.15);
+}
+footer ul {
+    list-style: none;
+    text-align: center;
+}
+footer li {
+    display: inline-block;
+    padding: 30px;
+}
+
+
+
+/*----- Headers ----- */
 #headerContent{
- background-image: url("./images/juanafood.jpg");
+ background-image: url("./images/avocado.jpg");
  height: 700px;
  background-position: center;
  background-repeat: no-repeat;
@@ -24,19 +99,48 @@ p {
  margin-right: 1%;
  
 }
+
+#headerContact {
+     background-image: url("./images/dinner.jpg");
+     height: 700px;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     position: relative;
+     margin-left: 1%;
+     margin-right: 1%;
+ }
+
+#headerBooking {
+ background-image: url("./images/bartendinghero.jpg");
+ height: 700px;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ position: relative;
+ margin-left: 1%;
+ margin-right: 1%;
+}
+
+
+
+/*----- Home Page ----- */
 #restaurantTitle {
   display: flex;
   flex-direction: column;
   color: white;
   margin: 0 auto;
   text-align: center;
+  margin-top: 5%;
 }
 #restaurantTitle h2 {
-  margin-top: -2.5%;
-  font-size: 1.5em;
+  margin-top: -4.5%;
+  font-size: 2.5em;
+  text-shadow: 2px 2px black;
 }
 #restaurantTitle h1 {
-  font-size: 3em;
+  font-size: 6em;
+  text-shadow: 3px 3px black;
 }
 #restaurntImage img {
     display: flex;
@@ -61,6 +165,8 @@ p {
     margin-right: 18%;
     font-size: 1.2em;
 }
+
+/*Scroll line on homepage with animation*/
 .scroll {
     height: 250px;
     margin-bottom: 7%;
@@ -69,6 +175,8 @@ p {
     color: #006600;
     font-size: 1.2em;
 }
+
+
 #scrollLine {
     transform: rotate(90deg);
     width: 120px;
@@ -76,9 +184,31 @@ p {
     border-width: 3px;
     border-color: #ff6600;
 }
+.scroll {
+    -webkit-animation: mover 1s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+
+.scroll {
+    -webkit-animation: mover 1s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+
+/*About the restaurant, section in homepage*/
 #theRestaurantImage img {
     display: flex;
     margin: 0 auto;
+    margin-top: -5%;
     width: 45%;
     height: 100%;
 }
@@ -90,6 +220,8 @@ p {
 width: 60px;
 margin-bottom: 5%;
 }
+
+/*About the bar, section in homepage*/
 #theBarImage img {
     display: flex;
     margin: 0 auto;
@@ -134,28 +266,9 @@ margin-bottom: 5%;
     border-width: 1.5px;
     border-color: red;
 }
-footer {
-    margin-top: 10%;
-    background-color: rgba(153,102,0,0.15);
-}
-footer ul {
-    list-style: none;
-    text-align: center;
-}
-footer li {
-    display: inline-block;
-    padding: 30px;
-}
-#headerContact {
-     background-image: url("./images/contactus.jpg");
-     height: 700px;
-     background-position: center;
-     background-repeat: no-repeat;
-     background-size: cover;
-     position: relative;
-     margin-left: 1%;
-     margin-right: 1%;
-}
+
+
+/*----- Contact Page ----- */
 #makeReservationImage {
     height: 400px;
 }
@@ -166,17 +279,48 @@ footer li {
     width: 35%;
     height: 100%;
 }
+
+/*Reach Us number with hoover effect*/
 #reachUs {
     margin-top: 5%;
-    margin-bottom: -0.09%;
-    font-weight: bold;
-    font-size: 2em;
+    margin-bottom: 0.5%;
+    font-size: 2.2em;
 }
-span {
-    font-weight: bold;
+span a {
     font-size: 1.4em;
-    text-decoration: underline;
+    text-decoration: none;
+    color: #0000ffc2;
 }
+
+
+span a {
+  display: inline;
+  position: relative;
+  overflow: hidden;
+}
+span a:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  width: 0;
+  bottom: -5px;
+  background: #ff6600;
+  height: 2px;
+  transition-property: width;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+span a:hover:after,
+span a:focus:after,
+span a:active:after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+
+/*Adress and Opening Hours section in Contact Page*/
 .openingHours {
     display: flex;
     justify-content: row;
@@ -192,6 +336,7 @@ h5 {
     text-align: center;
     font-size: 1.8em;
 }
+
 .directionTitle h5{
     margin-bottom: 1.2%;
 }
@@ -218,19 +363,12 @@ h5 {
  background-size: cover;
  position: relative;
 }
-#headerBooking {
- background-image: url("./images/bartendinghero.jpg");
- height: 450px;
- background-position: center;
- background-repeat: no-repeat;
- background-size: cover;
- position: relative;
- margin-left: 1%;
- margin-right: 1%;
-}
+
+
+/*----- Booking Page ----- */
 #restaurantTitle p {
-    margin-bottom: -2%;
-    font-size: 1.2em;
+    margin-bottom: -5%;
+    font-size: 1.5em;
 }
 #restaurantTitle {
     padding-top: 2%;
@@ -256,10 +394,7 @@ h5 {
     font-family: Georiga;
     margin-bottom: 5%;
 }
-#ChosenSitting p {
-    font-size: 1.3em;
-    text-align: center;
-}
+
 input {
     height: 45px;
     width: 337px;
@@ -272,51 +407,59 @@ input {
     margin-bottom: 5%;  
 }
 
-#checkbox {   
-    width: 10%;
-    margin:0, 15px, 5px,0;
-    padding: 0;
+.submitButton {
+    margin-left: 245px;
+    width: 30%;
+    border-color: #25cea4;
+}
+.submitButton:hover {
+    background:#25cea4;
+    color: white;
 }
 
+
+/* Information showned of choosen date, time and guests */
 #reservationInfo {
     display: flex;
     text-align: center;
     flex-direction: column;
 }
-.submitButton {
-    margin-left: 245px;
-    width: 30%;
-     border-color: #25cea4;
-}
-.submitButton:hover {
-     background:#25cea4;
-     color: white;
+
+#ChosenSitting p {
+    font-size: 1.3em;
+    text-align: center;
 }
 
-/* The Modal (background) */
+
+/*----- Admin Page ----- */
 .modal {
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    position: fixed; 
+    z-index: 1; 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    width: 100%; 
+    height: 100%; 
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
 }
 
-/* Modal Content/Box */
+/* Modal Content/PopUp */
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 80%; 
 }
 
-/* The Close Button */
+/* The Time buttons, hidden by default */
+#EarlyButton, #LateButton {
+  display: none;
+}
+
+/* The Close Button of PopUp*/
 .close {
     color: #aaa;
     float: right;

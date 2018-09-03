@@ -19,8 +19,8 @@ function ContactPageMain() {
                 the story Juana La Loca wants to tell. Just give us a call during opening hours. 
                 You will reach us at the following telephone number:
                 </p>
-                <p id="reachUs">Reach us at:</p>
-                <span>+57 125 67 500</span>
+                <p id="reachUs">Reach us at</p>
+                <span><a href="057 125 67 500">057 125 67 500</a></span>
 
               </div>
               <OpeningHours />
