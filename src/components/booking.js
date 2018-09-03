@@ -24,6 +24,9 @@ export class Booking extends React.Component {
        
         earlySittingsButton: false,
         lateSittingsButton: false,
+        EarlySelected: null,
+        LateSelected: null,
+        notAvailable: false,
 
         guestFormDiv: '',
         sittingInformation: ''
@@ -36,8 +39,7 @@ export class Booking extends React.Component {
         this.showLateTime = this.showLateTime.bind(this)
 
         this.handlePersonChange = this.handlePersonChange.bind(this);
-        this.handlePersonSubmit = this.handlePersonSubmit.bind(this);
-        
+        this.handlePersonSubmit = this.handlePersonSubmit.bind(this);    
     }
  
  /* handleChange updates the initial state with selected date when clicked */
@@ -90,7 +92,7 @@ showEarlyTime(){
     let sittingInformation = <ChosenSitting chosenDate={chosenDate} chosenTime={EarlyButtonValue} chosenGuests={this.state.guests} />;
 
     this.setState({
-      startDate: date, guests: guests, time: EarlyButtonValue, guestFormDiv: guestFormDiv, sittingInformation: sittingInformation
+      startDate: date, guests: guests, time: EarlyButtonValue, guestFormDiv: guestFormDiv, sittingInformation: sittingInformation, EarlySelected:'selected', LateSelected: null
     });
 
 }   
@@ -106,7 +108,7 @@ showLateTime(){
     let sittingInformation = <ChosenSitting chosenDate={chosenDate} chosenTime={LateButtonValue} chosenGuests={this.state.guests} />;
 
     this.setState({
-      startDate: date, guests: guests, time: LateButtonValue, guestFormDiv: guestFormDiv, sittingInformation : sittingInformation
+      startDate: date, guests: guests, time: LateButtonValue, guestFormDiv: guestFormDiv, sittingInformation : sittingInformation, EarlySelected:null, LateSelected:'selected'
     });
 }
 
@@ -116,30 +118,41 @@ checkAvailableSittings (response){
   if(response.earlyBookings < 15 ){
     console.log('knapp 18:00');
     this.setState({
-      earlySittingsButton: true
+      earlySittingsButton: true,
+      notAvailable: false
     });
   }
 
   if(response.earlyBookings === 15) {
     console.log('18:00 är fullt!');
      this.setState({
-      earlySittingsButton: false
+      earlySittingsButton: false,
+      notAvailable: false
     });
   }
 
   if(response.lateBookings < 15){
     console.log('knapp 21:00');
      this.setState({
-      lateSittingsButton: true
+      lateSittingsButton: true,
+      notAvailable: false
     });
   }
 
   if(response.lateBookings === 15){
     console.log('21:00 är fullt!');
      this.setState({
-      lateSittingsButton: false
+      lateSittingsButton: false,
+      notAvailable: false
     });
   }
+
+   if (response.lateBookings && response.earlyBookings === 15){
+    this.setState({
+      notAvailable: true
+    });
+   } 
+
 };
 
 
@@ -209,7 +222,10 @@ postBookingInfo() {
                                       showEarlyTime={this.showEarlyTime} 
                                       showLateTime={this.showLateTime}
                                       earlySittingsButton={this.state.earlySittingsButton}
-                                      lateSittingsButton={this.state.lateSittingsButton}/>
+                                      lateSittingsButton={this.state.lateSittingsButton}
+                                      EarlySelected={this.state.EarlySelected}
+                                      LateSelected={this.state.LateSelected}
+                                      notAvailable={this.state.notAvailable}/>
                   
                    {this.state.guestFormDiv}
                     <ConfirmationPopUp modelID='myModal' event={this.closeConfirmationPopUp}/>

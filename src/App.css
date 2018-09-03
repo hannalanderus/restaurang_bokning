@@ -407,6 +407,27 @@ input {
     margin-bottom: 5%;  
 }
 
+#timeButtons{
+  display: flex;
+  justify-content: space-between;
+}
+
+#EarlyButtonID, #LateButtonID {
+ height: 45px;
+ width: 48%;
+ font-size: 1.3em;
+ font-family: Georiga;
+ background: rgb(248, 248, 248);
+ border-radius: 5px;
+ border: 1px solid rgb(166, 166, 166);
+ margin-bottom: 5%; 
+}
+
+/* Selected time button changes to green when clicked */
+.selected {
+  background: #25cea4 !important;
+}
+
 .submitButton {
     margin-left: 245px;
     width: 30%;
@@ -415,6 +436,12 @@ input {
 .submitButton:hover {
     background:#25cea4;
     color: white;
+}
+
+.notAvailableMessage {
+  font-size: 1.2em;
+  width: 337px;
+  text-align: center;
 }
 
 

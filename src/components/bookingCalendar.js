@@ -15,13 +15,17 @@ export class BookingCalendar extends React.Component {
 
     let early = '';
     let late = '';
+    let notAvailable = '';
 
     if(this.props.earlySittingsButton){
-      early = <EarlySittings EarlyButtonID='EarlyButtonID' event={this.props.showEarlyTime} />
+      early = <EarlySittings EarlyButtonID='EarlyButtonID' timeButtonClass={this.props.EarlySelected} event={this.props.showEarlyTime} />
     };
     if(this.props.lateSittingsButton){
-      late = <LateSittings LateButtonID='LateButtonID' event={this.props.showLateTime} />
+      late = <LateSittings LateButtonID='LateButtonID' timeButtonClass={this.props.LateSelected} event={this.props.showLateTime} />
     }; 
+    if(this.props.notAvailable){
+      notAvailable = 'No tables available. Please choose another date to vist us!'
+    };
 
     return (
       <div>
@@ -35,11 +39,11 @@ export class BookingCalendar extends React.Component {
            />
          </div>
          
-         <div>
+         <div id="timeButtons">
            {early}
-           {late}
+           {late}    
          </div>  
-
+          <p className="notAvailableMessage">{notAvailable}</p>
        </div>
       )
     }
