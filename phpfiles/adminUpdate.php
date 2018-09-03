@@ -1,37 +1,34 @@
 <?php
-header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Origin: http://localhost:3000");
 header("content-type:application/json");
 
 $connect = mysqli_connect("127.0.0.1", "root", "root", "restaurant");
+
+
 $guestInformation = json_decode(file_get_contents('php://input'));
 $array = json_decode(json_encode($guestInformation), True);
 
 $name = $array['name'];
 $email = $array['email'];
 $phoneNumber = $array['phoneNumber'];
-$guestID = $array['guestId'];
+$person_id = $array['guestId'];
 
 $guests = $array['guests'];
 $date = $array['startDate'];
 $time = $array['time'];
 $bookingID = $array['bookingId'];
 
-$bookingId = $_GET['bookingID'];
+echo json_encode(var_dump($array));
 
 
-
-$DeleteBooking = mysqli_query($connect, "DELETE FROM bokning WHERE id = '$bookingId'");
-
-
-$UpdatePersonOnBooking = mysqli_query($connect, "UPDATE FROM person
- SET namn = '$name', epost = '$email', telefon = '$phoneNumber'
- WHERE id = '$guestID' ")
+$UpdatePersonOnBooking = mysqli_query($connect, "UPDATE person
+ SET id='$person_id', namn = '$name', epost = '$email', telefon = '$phoneNumber'
+ WHERE id = '$person_id' ");
 
 
-$UpdateBooking = mysqli_query($connect, "UPDATE FROM bokning
- SET datum = '$date', tid = '$time', antal_personer = '$guests'
- WHERE id = '$bookingID' ")
+$UpdateBooking = mysqli_query($connect, "UPDATE bokning
+ SET id='$bookingID', datum = '$date', tid = '$time', antal_personer = '$guests'
+ WHERE id = '$bookingID' ");
 
 
 mysqli_close($connect);

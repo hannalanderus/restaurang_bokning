@@ -8,6 +8,7 @@ import moment from 'moment';
 import DatePicker from 'react-datepicker'; 
 import Guestinfo from './guestinfo'; 
 import ChosenSitting from './chosenSitting';
+import ConfirmationPopUp from './confirmationPopUp';
 
 export class Booking extends React.Component {
     constructor(props) {
@@ -154,6 +155,16 @@ handlePersonSubmit(e) {
     this.postBookingInfo()
 }
 
+confirmationPopUp(){
+  let modal = document.getElementById('myModal');
+  modal.style.display = "block";
+}
+
+closeConfirmationPopUp(){
+  let modal = document.getElementById('myModal');
+  modal.style.display = "none";
+}
+
 postBookingInfo() {
     let date = this.state.startDate.format('YYYY-MM-DD');
 
@@ -168,12 +179,11 @@ postBookingInfo() {
 
    return fetch('http://localhost:8888/phpfiles/create.php', {
       method: "POST",
-      mode: "cors",
+      mode: "no-cors",
       body: JSON.stringify(data)
       })
-      .then((response) => response.json())
       .then((response) => {
-        console.log(data);
+        this.confirmationPopUp();
       })
       .catch((error) => {
         console.error(error);
@@ -202,7 +212,7 @@ postBookingInfo() {
                                       lateSittingsButton={this.state.lateSittingsButton}/>
                   
                    {this.state.guestFormDiv}
-
+                    <ConfirmationPopUp modelID='myModal' event={this.closeConfirmationPopUp}/>
                 </div>
 
                 <Footer />

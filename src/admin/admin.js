@@ -2,31 +2,6 @@ import React from 'react';
 import EditPopUp from '../components/editPopUp';
 import moment from 'moment';
 
-
-
-window.deleteBooking = (id) => {
-		let bookingID = id;
-		
-		return fetch('http://localhost:8888/phpfiles/admin.php?bookingID=' + bookingID, {
-        method: "DELETE",
-        headers: {
-          Accept: "application/json",
-          "Content-type": "application/json"
-        		}
-      	}
-	)
-
-    .then((response) => response.json())
-    .then((response) => {
-      console.log(bookingID)
-
-    })
-    .catch((error) => {
-      console.error(error);
-    })
-}
-
-
 class AdminPage extends React.Component {
 	constructor(props){
 		super(props);
@@ -66,6 +41,29 @@ class AdminPage extends React.Component {
 				let modal = document.getElementById('myModal');
 				modal.style.display = "block";
 		}
+
+		window.deleteBooking = (id) => {
+
+		window.confirm('Are you sure you want to delete this booking?');
+		let bookingID = {
+			id: id,
+		}
+		
+		return fetch('http://localhost:8888/phpfiles/adminDelete.php', {
+	      method: "POST",
+	      mode: "no-cors",
+	      body: JSON.stringify(bookingID)
+	      })
+		    .then((response) => {
+		      console.log(bookingID)
+		      this.getBookings();
+
+		    })
+		    .catch((error) => {
+		      console.error(error);
+		    })
+		}
+
 	}
 
 	changeGuestInfo(e){
@@ -93,16 +91,15 @@ class AdminPage extends React.Component {
 
 	    console.log(editedInfo);
 
-	     return fetch('http://localhost:8888/phpfiles/admin.php', {
-	      method: "PUT",
-	      mode: "cors",
+	     return fetch('http://localhost:8888/phpfiles/adminUpdate.php', {
+	      method: "POST",
+	      mode: "no-cors",
 	      body: JSON.stringify(editedInfo)
 	      })
-	      .then((response) => response.json())
 	      .then((response) => {
 	        console.log(editedInfo);
 	        this.closePopUp();
-	        this.listBookings(response);
+	        this.getBookings();
 	      })
 	      .catch((error) => {
 	        console.error(error);
