@@ -1,5 +1,7 @@
 # Restaurant booking 
 
+## This project has been created with the software development approach called mob programming
+
 Av Niclas Victorsson, Hanna Landerus, Ellinor Jansson, Vanja Ivanovic, Catalina Pradilla Rocha
 
 Gå till repository: <https://github.com/hannalanderus/restaurang_bokning>
