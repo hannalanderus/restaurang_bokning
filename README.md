@@ -8,8 +8,8 @@ Gå till repository: <https://github.com/hannalanderus/restaurang_bokning>
 
 ## Description
 
-*This is a restaurant website where you can book a table online.
-*A restaurant employee also has their on section of the page - as an Adminpage,
+* This is a restaurant website where you can book a table online.
+* A restaurant employee also has their on section of the page - as an Adminpage,
 where she or he can delete a booking, as well as edit a booking.
 
 ### Tools used:
