@@ -1,6 +1,5 @@
 import React from 'react';
 import EditPopUp from './editPopUp';
-import moment from 'moment';
 
 class AdminPage extends React.Component {
 	constructor(props){
@@ -230,12 +229,10 @@ showLateTime(){
  (that happens in handleChangeDatePicker).
  And changes states for timebuttons to be shown or not */
 checkAvailableSittings (response){
- console.log(response.earlyBookings);
 
 	if(response.earlyBookings < 15 ){
     	let EarlyButton = document.getElementById('EarlyButton');
-    	let EarlyButtonValue = EarlyButton.value; 
-    	
+    	 
     	EarlyButton.style.display = "block";
 	}
 
@@ -246,8 +243,7 @@ checkAvailableSittings (response){
 
 	if(response.lateBookings < 15){
   		let LateButton = document.getElementById('LateButton');
-    	let LateButtonValue = LateButton.value; 
-    
+    	
     	LateButton.style.display = "block";
 	}
 

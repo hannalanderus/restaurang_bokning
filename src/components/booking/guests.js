@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 /* Component with inputfields for guestinformation. 
 Events passed as props from bookingCalender.js 

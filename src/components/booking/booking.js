@@ -2,10 +2,8 @@ import React from 'react';
 import BookingHeader from './headerBooking';
 import Footer from '../footer';
 import BookingTitle from './bookingTitle';
-import BookingDiv from './bookingDiv';
 import { BookingCalendar } from './bookingCalendar.js';
 import moment from 'moment';
-import DatePicker from 'react-datepicker'; 
 import Guestinfo from './guestinfo'; 
 import ChosenSitting from './chosenSitting';
 import ConfirmationPopUp from './confirmationPopUp';
@@ -28,7 +26,7 @@ export class Booking extends React.Component {
             notAvailable: false,
 
             guestFormDiv: '',
-            sittingInformation: ''
+            sittingInformation: '',
         };
 
 /* Bind events to the functions to be called, that are being refered without method () */
@@ -168,9 +166,10 @@ checkAvailableSittings (response){
     });
   }
 
-   if (response.lateBookings && response.earlyBookings === 15){
+   if (response.lateBookings === 15 && response.earlyBookings === 15){
     this.setState({
-      notAvailable: true
+      notAvailable: true,
+
     });
    } 
 };
@@ -247,7 +246,9 @@ closeConfirmationPopUp(){
                                 lateSittingsButton={this.state.lateSittingsButton}
                                 EarlySelected={this.state.EarlySelected}
                                 LateSelected={this.state.LateSelected}
-                                notAvailable={this.state.notAvailable}/>
+                                notAvailable={this.state.notAvailable}
+                                changeToDisabled={this.state.changeToDisabled}
+                                timeButtonDisabled={this.state.timeButtonDisabled} />
               
               {this.state.guestFormDiv}
               <ConfirmationPopUp modelID='myModal' event={this.closeConfirmationPopUp}/>

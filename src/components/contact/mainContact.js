@@ -10,7 +10,7 @@ function ContactPageMain() {
       <main className="mainContact">
 
         <div id="makeReservationImage">
-          <img src={require("../images/phone.png")}/>
+          <img src={require("../images/phone.png")} alt="Phone"/>
         </div>
 
         <div className="descriptionBox">

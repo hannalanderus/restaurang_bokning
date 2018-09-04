@@ -1,7 +1,5 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
-import EarlySittings from '../booking/earlySittings';
-import LateSittings from '../booking/lateSittings';
 
 /* Creates pop up with inputfields to edit a booking.
 Passing click and onchange events as props from admin.js

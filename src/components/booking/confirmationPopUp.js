@@ -1,5 +1,4 @@
 import React from 'react';
-import StartPage from '../home/home.js';
 import {
   Link
 } from 'react-router-dom';

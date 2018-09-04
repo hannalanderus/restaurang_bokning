@@ -7,7 +7,7 @@ function TheRestaurant (){
                 <p>We make mediterranian food
                 <br/> (and some other crazy things)</p>
                 <hr id="textUnderline" />
-                <img src={require("../images/chefknifeanimation.jpg")} />
+                <img src={require("../images/chefknifeanimation.jpg")} alt="Chef knife" />
             </div>
 
             <div className="descriptionBox">

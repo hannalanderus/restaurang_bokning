@@ -2,7 +2,6 @@ import React from 'react';
 import ScrollDown from './scrollDown';
 import TheRestaurant from './theRestaurant';
 import { Link } from 'react-router-dom';
-import Booking from '../booking/booking.js';
 import TheBar from './theBar';
 import Footer from '../footer';
 
@@ -17,7 +16,7 @@ function StartPageMain() {
         </div>
 
         <div id="restaurntImage">
-          <img src={require("../images/juanabar3.png")}/>
+          <img src={require("../images/juanabar3.png")} alt="Bar"/>
         </div>
 
         <div className="descriptionBox">

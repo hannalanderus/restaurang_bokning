@@ -4,9 +4,7 @@ import React from 'react';
 /* Component with inputfields for guestinformation. 
 Events passed as props from booking.js */ 
 class Guestinfo extends React.Component {
-  constructor (props) {
-    super(props)
-  }
+
 
   render(){
   	return(
@@ -26,7 +24,7 @@ class Guestinfo extends React.Component {
                 <input type="checkbox" required/>
             </div>
             <div id="termsText">
-              <p>I accept to the <a href="#">Terms & Conditions</a> regarding my personal data.</p>
+              <p>I accept to the <a href={null}>Terms & Conditions</a> regarding my personal data.</p>
             </div>
           </div>
 

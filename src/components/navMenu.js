@@ -1,16 +1,9 @@
-import React, { Component } from 'react';
-import StartPage from './home/home.js'; 
-import { Booking } from './booking/booking.js';
-import { PropTypes } from 'react';
-import Contact from './contact/contact.js';
+import React from 'react';
 import {
   Link
 } from 'react-router-dom';
 
-
-
-class NavMenu extends React.Component {
-  render() {
+function NavMenu(){
     return (
         <div>   
            <nav>            
@@ -23,6 +16,5 @@ class NavMenu extends React.Component {
           </div>  
       )
   }
-}
 
 export default NavMenu;

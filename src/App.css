@@ -1,31 +1,32 @@
 /* ----- Typography ----- */
 body {
-    background-color: rgba(153,102,0,0.04);
+  background-color: rgba(153,102,0,0.04);
 }
+
 h1, h2, h3, h4, h5, h6 {
-    font-weight: bold;
-    font-family: Georiga;
+  font-weight: bold;
+  font-family: Georiga;
 }
 
 #restaurantTitle a {
-    color:white;
-    text-decoration: none;
+  color:white;
+  text-decoration: none;
 }
 
-p {
-    font-family: Palatino Linotype;
+p{
+  font-family: Palatino Linotype;
 }
 
 .flex{
-    display:flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 label {
-    font-family: Palatino Linotype;
-    font-weight: bold;
-    text-align: left;
+  font-family: Palatino Linotype;
+  font-weight: bold;
+  text-align: left;
 }
 
 button:focus, select:focus, input:focus{
@@ -47,23 +48,25 @@ button:focus, select:focus, input:focus{
 
 /*----- Navigation ----- */
 nav{
-    padding-top: 0.5%;
-    background: #00000042;
-    padding-bottom: 0.5%;
-}
-nav a{
-    font-size: 0.9em;
-    padding: 20px;
-    color: white;
-    text-shadow: 0.5px 0.5px grey;
-    text-decoration: none;
+  padding-top: 0.5%;
+  background: #00000042;
+  padding-bottom: 0.5%;
 }
 
 nav a{
-    display: inline;
-    position: relative;
-    overflow: hidden;
+  font-size: 0.9em;
+  padding: 20px;
+  color: white;
+  text-shadow: 0.5px 0.5px grey;
+  text-decoration: none;
 }
+
+nav a{
+  display: inline;
+  position: relative;
+  overflow: hidden;
+}
+
 nav a:after {
   content: "";
   position: absolute;
@@ -77,6 +80,7 @@ nav a:after {
   transition-duration: 0.3s;
   transition-timing-function: ease-out;
 }
+
 nav a:hover:after,
 nav a:focus:after,
 nav a:active:after {
@@ -88,55 +92,55 @@ nav a:active:after {
 
 /*----- Footer ----- */
 footer {
-    margin-top: 10%;
-    background-color: rgba(153,102,0,0.15);
-}
-footer ul {
-    list-style: none;
-    text-align: center;
-}
-footer li {
-    display: inline-block;
-    padding: 30px;
+  margin-top: 10%;
+  background-color: rgba(153,102,0,0.15);
 }
 
+footer ul {
+  list-style: none;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+footer li {
+  display: inline-block;
+  padding: 30px;
+}
 
 
 /*----- Headers ----- */
 #headerContent{
- background-image: url("./components/images/avocado.jpg");
- height: 700px;
- background-position: center;
- background-repeat: no-repeat;
- background-size: cover;
- position: relative;
- margin-left: 1%;
- margin-right: 1%;
- 
+  background-image: url("./components/images/avocado.jpg");
+  height: 700px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
 #headerContact {
-     background-image: url("./components/images/dinner.jpg");
-     height: 700px;
-     background-position: center;
-     background-repeat: no-repeat;
-     background-size: cover;
-     position: relative;
-     margin-left: 1%;
-     margin-right: 1%;
- }
-
-#headerBooking {
- background-image: url("./components/images/bartendinghero.jpg");
- height: 700px;
- background-position: center;
- background-repeat: no-repeat;
- background-size: cover;
- position: relative;
- margin-left: 1%;
- margin-right: 1%;
+  background-image: url("./components/images/dinner.jpg");
+  height: 700px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
+#headerBooking {
+  background-image: url("./components/images/bartendinghero.jpg");
+  height: 700px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-left: 1%;
+  margin-right: 1%;
+}
 
 
 /*----- Home Page ----- */
@@ -148,171 +152,185 @@ footer li {
   text-align: center;
   margin-top: 5%;
 }
+
 #restaurantTitle h2 {
   margin-top: -4.5%;
   font-size: 2.5em;
   text-shadow: 2px 2px black;
 }
+
 #restaurantTitle h1 {
   font-size: 6em;
   text-shadow: 3px 3px black;
 }
+
 #restaurntImage img {
-    display: flex;
-    margin: 0 auto;
-    margin-top: 5%;
-    width: 70%;
-    height: 100%;
-    
+  display: flex;
+  margin: 0 auto;
+  margin-top: 5%;
+  width: 70%;
+  height: 100%;  
 }
+
 #restaurntImage {
-    height: 600px;
+  height: 600px;
 }
+
 .descriptionBox {
-    text-align: center;
-    margin-top: 5%; 
+  text-align: center;
+  margin-top: 5%; 
 }
+
 .descriptionBox h2 {
-    font-size: 2.6em;
+  font-size: 2.6em;
 }
+
 .descriptionBox p {
-    margin-left: 18%;
-    margin-right: 18%;
-    font-size: 1.2em;
+  margin-left: 18%;
+  margin-right: 18%;
+  font-size: 1.2em;
 }
 
 /*Scroll line on homepage with animation*/
 .scroll {
-    height: 250px;
-    margin-bottom: 7%;
-    margin-top: 5%;
-    text-align: center;
-    color: #006600;
-    font-size: 1.2em;
+  height: 250px;
+  margin-bottom: 7%;
+  margin-top: 5%;
+  text-align: center;
+  color: #006600;
+  font-size: 1.2em;
 }
-
 
 #scrollLine {
-    transform: rotate(90deg);
-    width: 120px;
-    margin-top: 80px;
-    border-width: 3px;
-    border-color: #ff6600;
-}
-.scroll {
-    -webkit-animation: mover 1s infinite  alternate;
-    animation: mover 1s infinite  alternate;
+  transform: rotate(90deg);
+  width: 120px;
+  margin-top: 80px;
+  border-width: 3px;
+  border-color: #ff6600;
 }
 
 .scroll {
-    -webkit-animation: mover 1s infinite  alternate;
-    animation: mover 1s infinite  alternate;
+  -webkit-animation: mover 1s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+
+.scroll {
+  -webkit-animation: mover 1s infinite  alternate;
+  animation: mover 1s infinite  alternate;
 }
 
 @-webkit-keyframes mover {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-10px); }
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
 }
 @keyframes mover {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-10px); }
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
 }
-
 
 /*About the restaurant, section in homepage*/
 #theRestaurantImage img {
-    display: flex;
-    margin: 0 auto;
-    margin-top: -5%;
-    width: 45%;
-    height: 100%;
+  display: flex;
+  margin: 0 auto;
+  margin-top: -5%;
+  width: 45%;
+  height: 100%;
 }
+
 #theRestaurantImage p, #theBarImage p {
-    text-align: center;
-    font-size: 1.6em;
+  text-align: center;
+  font-size: 1.6em;
 }
+
 #textUnderline {
-width: 60px;
-margin-bottom: 5%;
+  width: 60px;
+  margin-bottom: 5%;
 }
 
 /*About the bar, section in homepage*/
 #theBarImage img {
-    display: flex;
-    margin: 0 auto;
-    width: 50%;
-    height: 100%;
- 
+  display: flex;
+  margin: 0 auto;
+  width: 50%;
+  height: 100%;
 }
+
 #theBarbox {
-    display: flex;
-    flex-direction: row;
-    margin-top: -5%;
+  display: flex;
+  flex-direction: row;
+  margin-top: -5%;
 }
+
 .martini {
-    width: 30%;
-    margin-top: 18%;
-    padding-left: 5%;
-    height: auto;
-    font-size: 0.6em;
+  width: 30%;
+  margin-top: 18%;
+  padding-left: 5%;
+  height: auto;
+  font-size: 0.6em;
 }
+
 .martiniQuality {
-    width: 30%;
-    padding-right: 5%;
-    margin-top: 25%;
-    height: auto;
-    font-size: 0.6em;       
+  width: 30%;
+  padding-right: 5%;
+  margin-top: 25%;
+  height: auto;
+  font-size: 0.6em;       
 }
+
 .martini h3, .martiniQuality h3 {
-    text-align: center;
-    font-size: 1.8em;
+  text-align: center;
+  font-size: 1.8em;
 }
+
 #cocktailLine {
-    transform: rotate(90deg);
-    height: 170px;
-    margin-top: 13.4%;
-    border-width: 1.5px;
-    border-color: red;
+  transform: rotate(90deg);
+  height: 170px;
+  margin-top: 13.4%;
+  border-width: 1.5px;
+  border-color: red;
 }
+
 #bestQualityLine {
-    transform: rotate(90deg);
-    height: 170px;
-    margin-top: 20.3%;
-    border-width: 1.5px;
-    border-color: red;
+  transform: rotate(90deg);
+  height: 170px;
+  margin-top: 20.3%;
+  border-width: 1.5px;
+  border-color: red;
 }
 
 
 /*----- Contact Page ----- */
 #makeReservationImage {
-    height: 400px;
+  height: 400px;
 }
+
 #makeReservationImage img {
-    display: flex;
-    margin: 0 auto;
-    margin-top: 5%;
-    width: 35%;
-    height: 100%;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 5%;
+  width: 35%;
+  height: 100%;
 }
 
 /*Reach Us number with hoover effect*/
 #reachUs {
-    margin-top: 5%;
-    margin-bottom: 0.5%;
-    font-size: 2.2em;
-}
-span a {
-    font-size: 1.4em;
-    text-decoration: none;
-    color: #0000ffc2;
+  margin-top: 5%;
+  margin-bottom: 0.5%;
+  font-size: 2.2em;
 }
 
+span a {
+  font-size: 1.4em;
+  text-decoration: none;
+  color: #0000ffc2;
+}
 
 span a {
   display: inline;
   position: relative;
   overflow: hidden;
 }
+
 span a:after {
   content: "";
   position: absolute;
@@ -326,6 +344,7 @@ span a:after {
   transition-duration: 0.3s;
   transition-timing-function: ease-out;
 }
+
 span a:hover:after,
 span a:focus:after,
 span a:active:after {
@@ -337,90 +356,99 @@ span a:active:after {
 
 /*Adress and Opening Hours section in Contact Page*/
 .openingHours {
-    display: flex;
-    justify-content: row;
-    justify-content: space-around;
-    font-size: 1.5em;
-    margin-top: 5%;
+  display: flex;
+  justify-content: row;
+  justify-content: space-around;
+  font-size: 1.5em;
+  margin-top: 5%;
 }
+
 .openingHours{
-    font-size: 1.2em;
-    text-align: center;
+  font-size: 1.2em;
+  text-align: center;
 }
+
 h5 {
-    text-align: center;
-    font-size: 1.8em;
+  text-align: center;
+  font-size: 1.8em;
 }
 
 .directionTitle h5{
-    margin-bottom: 1.2%;
+  margin-bottom: 1.2%;
 }
+
 #juanalalocaDirections {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding-top: 5%;
-    border-top: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 5%;
+  border-top: 1px solid black;
 }
+
 .adress {
-    padding-right: 20%;
-    font-size: 1.2em;
-    margin-top: 5%;
+  padding-right: 20%;
+  font-size: 1.2em;
+  margin-top: 5%;
 }
+
 .map {
- background-image: url("./components/images/mapjuanalaloca.jpg");
- height: 400px;
- width: 90%;
- margin: 0 auto;
- margin-top: 2.5%;
- background-position: center;
- background-repeat: no-repeat;
- background-size: cover;
- position: relative;
+  background-image: url("./components/images/mapjuanalaloca.jpg");
+  height: 400px;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 2.5%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 
 /*----- Booking Page ----- */
 #restaurantTitle p {
-    margin-bottom: -5%;
-    font-size: 1.5em;
+  margin-bottom: -5%;
+  font-size: 1.5em;
 }
+
 #restaurantTitle {
-    padding-top: 2%;
+  padding-top: 2%;
 }
+
 .BookingTitle {
-    font-size: 1.6em;
-    text-align: center;
-    margin-top: 6%;
+  font-size: 1.6em;
+  text-align: center;
+  margin-top: 6%;
 }
+
 #bookingDiv {
-    display: flex;
-    justify-content: space-around;
-    background-color: rgba(153,102,0,0.15);
-    width: 80%;
-    margin: 0 auto;
-    min-height: 250px;
-    padding-top: 5%;
-    padding-bottom: 5%;
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(153,102,0,0.15);
+  width: 80%;
+  margin: 0 auto;
+  min-height: 250px;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
+
 #guestsAmount {
-    height: 50px;
-    width: 350px;
-    font-size: 1.3em;
-    font-family: Georiga;
-    margin-bottom: 5%;
+  height: 50px;
+  width: 350px;
+  font-size: 1.3em;
+  font-family: Georiga;
+  margin-bottom: 5%;
 }
 
 input {
-    height: 45px;
-    width: 337px;
-    font-size: 1.3em;
-    font-family: Georiga;
-    background: rgb(248, 248, 248);
-    border-radius: 5px;
-    border: 1px solid rgb(166, 166, 166);
-    padding-left: 10px;
-    margin-bottom: 5%;  
+  height: 45px;
+  width: 337px;
+  font-size: 1.3em;
+  font-family: Georiga;
+  background: rgb(248, 248, 248);
+  border-radius: 5px;
+  border: 1px solid rgb(166, 166, 166);
+  padding-left: 10px;
+  margin-bottom: 5%;  
 }
 
 #timeButtons{
@@ -429,16 +457,16 @@ input {
 }
 
 #EarlyButtonID, #LateButtonID, #EarlyButton, #LateButton  {
- height: 45px;
- width: 48%;
- font-size: 1.3em;
- font-family: Georiga;
- background: rgb(248, 248, 248);
- border-radius: 5px;
- border: 1px solid rgb(166, 166, 166);
- margin-bottom: 5%; 
- -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
- -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
+  height: 45px;
+  width: 48%;
+  font-size: 1.3em;
+  font-family: Georiga;
+  background: rgb(248, 248, 248);
+  border-radius: 5px;
+  border: 1px solid rgb(166, 166, 166);
+  margin-bottom: 5%; 
+  -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
+  -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
   box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
   cursor: pointer;
 }
@@ -447,7 +475,6 @@ input {
   display: flex;
   justify-content: center;
   width: 100%;
-  
 }
 
 .bookingButton{
@@ -462,13 +489,15 @@ input {
   -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
   box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
   cursor: pointer;
-
 }
-
 
 /* Selected time button changes to green when clicked */
 .selected {
   background: #25cea4 !important;
+}
+
+.timeButtonDisabled {
+  background: red;
 }
 
 .submitButtonDiv {
@@ -476,17 +505,19 @@ input {
   width: 337px;
   justify-content: right;
 }
+
 .submitButton {
-    width: 100%;
-    border-color: #25cea4;
-    -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
-    -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
-    box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
-    cursor: pointer;
+  width: 100%;
+  border-color: #25cea4;
+  -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
+  -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
+  box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
+  cursor: pointer;
 }
+
 .submitButton:hover {
-    background:#25cea4;
-    color: white;
+  background:#25cea4;
+  color: white;
 }
 
 .notAvailableMessage {
@@ -495,69 +526,70 @@ input {
   text-align: center;
 }
 
-
 /* Information showned of choosen date, time and guests */
 #reservationInfo {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
 }
 
 #ChosenSitting p {
-    font-size: 1.3em;
-    text-align: center;
+  font-size: 1.3em;
+  text-align: center;
 }
 
 
 /*----- Admin Page ----- */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; 
-    z-index: 1; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4); 
+  display: none; /* Hidden by default */
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
 }
 
 .table {
-   width: 100%;
-   margin-bottom: 1rem;
-   text-align: center;
-   background-color: transparent;
-   border-collapse: collapse;
-   box-sizing: border-box;
-   border-spacing: 2px;
-   border-color: grey;
+  width: 100%;
+  margin-bottom: 1rem;
+  text-align: center;
+  background-color: transparent;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  border-spacing: 2px;
+  border-color: grey;
 }
 
 .table-primary {
-   background-color: #2c3e50;
-   color: #FFF;
+ background-color: #2c3e50;
+ color: #FFF;
 }
 
 tr {
-   display: table-row;
-
+  display: table-row;
 }
 
 td {
-   padding: 15px;
+  padding: 15px;
 }
 
 th {
-   padding: 20px;
+  padding: 20px;
 }
+
 .table-light {
-   background-color: #f0e8d9;
+  background-color: #f0e8d9;
 }
+
 #admin {
-   max-width: 1140px;
-   margin: 0 auto;
+  max-width: 1140px;
+  margin: 0 auto;
 }
+
 .adminButton{
   background-color: transparent;
   border: none;
@@ -574,11 +606,11 @@ th {
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; 
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; 
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
 }
 
 /* The Time buttons, hidden by default */
@@ -588,16 +620,15 @@ th {
 
 /* The Close Button of PopUp*/
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
-

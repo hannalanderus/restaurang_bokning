@@ -17,7 +17,7 @@ function TheBar (){
 
                     <hr id="cocktailLine" />
 
-                    <img src={require("../images/espressomartini1.png")} />
+                    <img src={require("../images/espressomartini1.png")} alt="Espresso Martini"/>
 
                     <hr id="bestQualityLine" />
 
