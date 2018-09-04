@@ -8,20 +8,17 @@ import {
 
 function StartPageHeader (){
             
-        return(
-        
-                <div id="headerWrapper">
-                        <header id="headerContent">
-                           <NavMenu />
-                                <div id="restaurantTitle">
-                                <Link to="/"><h1>Juana La Loca</h1></Link>
-                                <h2>Restaurant & Bar</h2>
-                                </div>
-                        </header>
-                </div>
-        
-        );
-    
+    return(
+        <div id="headerWrapper">
+            <header id="headerContent">
+               <NavMenu />
+                    <div id="restaurantTitle">
+                        <Link to="/"><h1>Juana La Loca</h1></Link>
+                        <h2>Restaurant & Bar</h2>
+                    </div>
+            </header>
+        </div>
+    );  
 }
 
 export default StartPageHeader;

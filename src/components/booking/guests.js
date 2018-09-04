@@ -4,10 +4,10 @@ import React, { Component } from 'react';
 Events passed as props from bookingCalender.js 
 where it is given a function (numberofguest) to call */ 
 const Guests = (props) => {
-		return(
-			<div> 
-				<label>Number of people</label>
-				 <form> 	
+	return(
+		<div> 
+			<label>Number of people</label>
+				<form> 	
 					<select id={props.SelectID} name="guests" className="form-control" onChange={props.event}>
 					      <option value="1">1</option>
 					      <option value="2">2</option>
@@ -16,9 +16,9 @@ const Guests = (props) => {
 					      <option value="5">5</option>
 					      <option value="6">6</option>
 				    </select>
-				  </form>
-			</div>
-		)
+				</form>
+		</div>
+	)
 };
 
 export default Guests;

@@ -10,15 +10,14 @@ import {
 
 /* Displays the complete landning page */
 class StartPage extends React.Component {
-    render() {
-        
-        return(
-          <div>
-            <StartPageHeader />
-            <StartPageMain />
-          </div>
-        );
-    }
+  render(){
+    return(
+      <div>
+        <StartPageHeader />
+        <StartPageMain />
+      </div>
+    );
+  }
 };
 
 export default StartPage;

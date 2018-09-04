@@ -1,11 +1,9 @@
 import React from 'react';
 
 function Map (){
-  return (
-
-     <div className="map"></div>
-
-  );
+	return (
+    	<div className="map"></div>
+	);
 };
 
 export default Map;

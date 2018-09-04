@@ -4,13 +4,12 @@ import ContactPageMain from './mainContact';
 
 /* Displays the complete contact page */
 function Contact (){
-  return (
-    <div>
-        <ContactHeader />
-        <ContactPageMain />    
-    </div>
-
-  );
+	return (
+	    <div>
+	        <ContactHeader />
+	        <ContactPageMain />    
+	    </div>
+	);
 };
 
 export default Contact;

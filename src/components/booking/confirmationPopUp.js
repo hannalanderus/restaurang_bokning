@@ -18,7 +18,6 @@ const ConfirmationPopUp = (props) => {
         </div>
       </div> 
 	)
-
 };
 
 export default ConfirmationPopUp;

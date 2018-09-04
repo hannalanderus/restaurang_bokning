@@ -162,7 +162,8 @@ listBookings(response){
 											this.dataset.email,
 											this.dataset.phone)">
 											<i class="fas fa-edit fa-2x"></i></button></td>
-			<td><button class="adminButton" id=${booking.id} onClick="deleteBooking(this.id)"><i class="fas fa-trash-alt fa-2x"></i>
+			<td><button class="adminButton" id=${booking.id} onClick="deleteBooking(this.id)">
+			<i class="fas fa-trash-alt fa-2x"></i>
 			</button></td>
 			</tr>
 			`;
@@ -173,9 +174,9 @@ listBookings(response){
 
 /* Closes PopUp edit box by changing styling to display none when clicked close */
 closePopUp(){	
-		let modal = document.getElementById('myModal');
-		modal.style.display = "none";
-	}
+	let modal = document.getElementById('myModal');
+	modal.style.display = "none";
+}
 
 /* HandleChangeDatePicker updates the initial state with selected date from datepicker when clicked */
 handleChangeDatePicker(date){
@@ -184,7 +185,7 @@ handleChangeDatePicker(date){
 	});
 
  /* Fetching all booking information from database based on chosen date */
-	 fetch('http://localhost:8888/phpfiles/bokningsapi.php?date=' + this.state.startDate)
+	fetch('http://localhost:8888/phpfiles/bokningsapi.php?date=' + this.state.startDate)
     .then((response) => response.json())
     .then((response) => {
       this.checkAvailableSittings(response);
@@ -202,11 +203,11 @@ showEarlyTime(){
 	let EarlyButton = document.getElementById('EarlyButton');
     let EarlyButtonValue = EarlyButton.value; 
 
-     this.setState({ 
-        	time: EarlyButtonValue,
-        	EarlySelected: 'selected',
-        	LateSelected: null
-    	});
+    this.setState({ 
+        time: EarlyButtonValue,
+        EarlySelected: 'selected',
+        LateSelected: null
+    });
 }
 
 
@@ -216,14 +217,12 @@ also changes button styling to be able to see which one is clicked/choosen. */
 showLateTime(){
 	let LateButton = document.getElementById('LateButton');
     let LateButtonValue = LateButton.value; 
-     console.log(LateButtonValue);
 
      this.setState({ 
-        	time: LateButtonValue,
-        	LateSelected: 'selected',
-        	EarlySelected: null
-
-    	});
+        time: LateButtonValue,
+        LateSelected: 'selected',
+        EarlySelected: null
+    });
 }
 
 
@@ -233,48 +232,53 @@ showLateTime(){
 checkAvailableSittings (response){
  console.log(response.earlyBookings);
 
-  if(response.earlyBookings < 15 ){
-     let EarlyButton = document.getElementById('EarlyButton');
-     let EarlyButtonValue = EarlyButton.value; 
+	if(response.earlyBookings < 15 ){
+    	let EarlyButton = document.getElementById('EarlyButton');
+    	let EarlyButtonValue = EarlyButton.value; 
+    	
+    	EarlyButton.style.display = "block";
+	}
+
+	if(response.earlyBookings === 15){
+    	let EarlyButton = document.getElementById('EarlyButton');
+    	EarlyButton.style.display = "none";
+	}
+
+	if(response.lateBookings < 15){
+  		let LateButton = document.getElementById('LateButton');
+    	let LateButtonValue = LateButton.value; 
     
-     EarlyButton.style.display = "block";
+    	LateButton.style.display = "block";
+	}
 
-     console.log('hej', EarlyButtonValue);
- }
-
-  if(response.earlyBookings === 15) {
-    console.log('18:00 är fullt!');
-    let EarlyButton = document.getElementById('EarlyButton');
-    EarlyButton.style.display = "none";
-  }
-
-  if(response.lateBookings < 15){
-  	let LateButton = document.getElementById('LateButton');
-    let LateButtonValue = LateButton.value; 
-    
-    LateButton.style.display = "block";
-
-     console.log('hello', LateButtonValue);
-  }
-
-  if(response.lateBookings === 15){
-    console.log('21:00 är fullt!');
-   let LateButton = document.getElementById('LateButton');
-    LateButton.style.display = "none";
-  }
+	if(response.lateBookings === 15){
+		let LateButton = document.getElementById('LateButton');
+    	LateButton.style.display = "none";
+	}
 };
 
 
 	render() {
-		
         return(
           <div id="admin">
-          <EditPopUp modelID='myModal' spanID='close' event={() => this.closePopUp()} 
-           handleChangeDatePicker={this.handleChangeDatePicker} changeGuestInfo={this.changeGuestInfo} Edit={this.handleEdit}
-           showEarlyTime={this.showEarlyTime} showLateTime={this.showLateTime}
-           Date={this.state.startDate} Guests={this.state.guests} Time={this.state.time}
-           Name={this.state.name} Email={this.state.email} PhoneNumber={this.state.phoneNumber} 
-           EarlyButtonID='EarlyButton' LateButtonID='LateButton' EarlySelected={this.state.EarlySelected} LateSelected={this.state.LateSelected}/>
+          <EditPopUp 	modelID='myModal' 
+			          	spanID='close'
+			          	event={() => this.closePopUp()} 
+			        	handleChangeDatePicker={this.handleChangeDatePicker} 
+			        	changeGuestInfo={this.changeGuestInfo} 
+			        	Edit={this.handleEdit}
+			        	showEarlyTime={this.showEarlyTime} 
+			        	showLateTime={this.showLateTime}
+			         	Date={this.state.startDate} 
+			         	Guests={this.state.guests} 
+			         	Time={this.state.time}
+			        	Name={this.state.name} 
+			        	Email={this.state.email} 
+			        	PhoneNumber={this.state.phoneNumber} 
+			           	EarlyButtonID='EarlyButton' 
+			           	LateButtonID='LateButton' 
+			           	EarlySelected={this.state.EarlySelected} 
+			           	LateSelected={this.state.LateSelected}/>
            
            <h2>Admin</h2>
 	           <table className="table table-hover">
@@ -297,7 +301,5 @@ checkAvailableSittings (response){
           </div>
         );
     }
- 
 };
-
 export default AdminPage;

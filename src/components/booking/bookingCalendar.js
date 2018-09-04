@@ -20,10 +20,14 @@ export class BookingCalendar extends React.Component {
     let notAvailable = '';
 
     if(this.props.earlySittingsButton){
-      early = <EarlySittings EarlyButtonID='EarlyButtonID' timeButtonClass={this.props.EarlySelected} event={this.props.showEarlyTime} />
+      early = <EarlySittings  EarlyButtonID='EarlyButtonID' 
+                              timeButtonClass={this.props.EarlySelected} 
+                              event={this.props.showEarlyTime} />
     };
     if(this.props.lateSittingsButton){
-      late = <LateSittings LateButtonID='LateButtonID' timeButtonClass={this.props.LateSelected} event={this.props.showLateTime} />
+      late = <LateSittings  LateButtonID='LateButtonID' 
+                            timeButtonClass={this.props.LateSelected} 
+                            event={this.props.showLateTime} />
     }; 
     if(this.props.notAvailable){
       notAvailable = 'No tables available. Please choose another date to vist us!'
@@ -32,24 +36,23 @@ export class BookingCalendar extends React.Component {
     return (
       <div>
         <div>
-        <Guests SelectID="guestsAmount" event={this.props.numberofguest} />
-        <label>Date</label>
-          <DatePicker
-            dateFormat="YYYY/MM/DD"
-            selected={this.props.startDate}
-            onChange={this.props.handleChangeDatePicker}        
-           />
-         </div>
+          <Guests SelectID="guestsAmount" event={this.props.numberofguest} />
+            <label>Date</label>
+              <DatePicker
+                dateFormat="YYYY/MM/DD"
+                selected={this.props.startDate}
+                onChange={this.props.handleChangeDatePicker}        
+              />
+        </div>
          
-         <div id="timeButtons">
-           {early}
-           {late}    
-         </div>  
+        <div id="timeButtons">
+          {early}
+          {late}    
+        </div>  
           <p className="notAvailableMessage">{notAvailable}</p>
-       </div>
-      )
-    }
-
+      </div>
+    )
+  }
 };
 
 export default BookingCalendar;
