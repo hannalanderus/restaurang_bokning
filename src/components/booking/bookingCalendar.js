@@ -8,10 +8,12 @@ import LateSittings from './lateSittings';
 import Guests from './guests';
 
 export class BookingCalendar extends React.Component {
-/*Todays date */
 
- 
   render() {
+
+  /* Time buttons and not available message empty as default, 
+  and are visable (in the if statments) for the user depending on the result 
+  from checkAvailableSittings function in booking.js */
 
     let early = '';
     let late = '';
@@ -35,7 +37,7 @@ export class BookingCalendar extends React.Component {
           <DatePicker
             dateFormat="YYYY/MM/DD"
             selected={this.props.startDate}
-            onChange={this.props.handleChange}        
+            onChange={this.props.handleChangeDatePicker}        
            />
          </div>
          

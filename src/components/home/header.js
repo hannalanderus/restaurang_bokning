@@ -1,5 +1,5 @@
 import React from 'react';
-import NavMenu from './navMenu';
+import NavMenu from '../navMenu';
 import StartPage from './home'; 
 import { PropTypes } from 'react';
 import {

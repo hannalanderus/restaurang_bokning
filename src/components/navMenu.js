@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import StartPage from './home'; 
-import { Booking } from './booking.js';
+import StartPage from './home/home.js'; 
+import { Booking } from './booking/booking.js';
 import { PropTypes } from 'react';
-import Contact from './contact';
+import Contact from './contact/contact.js';
 import {
   Link
 } from 'react-router-dom';

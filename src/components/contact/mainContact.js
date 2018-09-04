@@ -1,9 +1,9 @@
 import React from 'react';
-import ScrollDown from './scrollDown';
-import Footer from './footer';
+import Footer from '../footer';
 import OpeningHours from './openingHours';
 import Map from './map';
 
+/* Displays the complete main section on contact page */
 function ContactPageMain() {
   return (
 

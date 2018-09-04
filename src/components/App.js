@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import Contact from './contact';
-import StartPage from './home'; 
+import Contact from './contact/contact.js';
+import StartPage from './home/home.js'; 
 import '../App.css';
-import { Booking } from './booking.js';
+import { Booking } from './booking/booking.js';
 import { PropTypes } from 'react';
-import AdminPage from '../admin/admin.js';
+import AdminPage from './admin/admin.js';
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom';
-
-
 
 class App extends React.Component {
     render() {

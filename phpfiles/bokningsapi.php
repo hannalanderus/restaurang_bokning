@@ -1,8 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: http://localhost:3000");
-header("content-type:application/json");
-
-$connect = mysqli_connect("127.0.0.1", "root", "root", "restaurant");
+require('database.php');
 
 if(!$connect){
     die('could not connect: ' . mysqli_connect_error());
@@ -37,9 +34,6 @@ $sittingsStatus = (object) [
     'earlyBookings' => $earlyBookings,
     'lateBookings' => $lateBookings
   ];
-
-//var_dump($earlyBookings);
-//echo $earlyBookings;
 
 print(json_encode($sittingsStatus, JSON_PRETTY_PRINT));
 mysqli_close($connect);

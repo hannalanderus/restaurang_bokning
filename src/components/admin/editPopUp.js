@@ -1,9 +1,11 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
-import EarlySittings from './earlySittings';
-import LateSittings from './lateSittings';
+import EarlySittings from '../booking/earlySittings';
+import LateSittings from '../booking/lateSittings';
 
-
+/* Creates pop up with inputfields to edit a booking.
+Passing click and onchange events as props from admin.js
+*/
 const EditPopUp = (props) => {
 	return(  
       <div id={props.modelID} className="modal">
@@ -17,7 +19,7 @@ const EditPopUp = (props) => {
                <div>
                 <label htmlFor="guests">Number of guests</label>
                  <form>   
-                  <select id='guestsAmount' name="guests" className="form-control" onChange={props.Change}>
+                  <select id='guestsAmount' name="guests" className="form-control" onChange={props.changeGuestInfo}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -31,7 +33,7 @@ const EditPopUp = (props) => {
                 <DatePicker
                     dateFormat="YYYY/MM/DD"
                     selected={props.startDate}
-                    onChange={props.handleChange} />
+                    onChange={props.handleChangeDatePicker} />
 
                   <label>Time</label>
                    <button className={props.EarlySelected} id={props.EarlyButtonID} onClick={props.showEarlyTime} value="18:00:00">18:00</button>
@@ -40,11 +42,11 @@ const EditPopUp = (props) => {
 
                <form id="reservationInfo" onSubmit={props.Edit}> 
                     <label>Name</label>    
-                    <input type="text" name="name" placeholder={props.Name} value={props.value} onChange={props.Change} />
+                    <input type="text" name="name" placeholder={props.Name} value={props.value} onChange={props.changeGuestInfo} />
                     <label>Email</label>
-                    <input type="text" name="email" placeholder={props.Email} onChange={props.Change} />
+                    <input type="text" name="email" placeholder={props.Email} onChange={props.changeGuestInfo} />
                     <label>Phone Number</label>
-                    <input type="text" name="phoneNumber" placeholder={props.PhoneNumber} onChange={this.Change} />
+                    <input type="text" name="phoneNumber" placeholder={props.PhoneNumber} onChange={this.changeGuestInfo} />
                     <input type="submit" value="Save" className="submitButton" />
               </form>
             </div>

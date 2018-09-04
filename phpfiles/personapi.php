@@ -1,15 +1,12 @@
 <?php
-header("Access-Control-Allow-Origin: http://localhost:3000");
-header("content-type:application/json");
-
-$connect = mysqli_connect("127.0.0.1", "root", "root", "restaurant");
+require('database.php');
 
 if(!$connect){
     die('could not connect: ' . mysqli_connect_error());
 }
 
 $result = mysqli_query($connect, "SELECT * FROM person INNER JOIN bokning 
-	ON person.id = bokning.person_id");
+	ON person.id = bokning.person_id ORDER BY datum ASC");
 
 while($row = mysqli_fetch_assoc($result)){
     $output[]=$row;

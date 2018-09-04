@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+/* Component with inputfields for guestinformation. 
+Events passed as props from bookingCalender.js 
+where it is given a function (numberofguest) to call */ 
 const Guests = (props) => {
 		return(
 			<div> 

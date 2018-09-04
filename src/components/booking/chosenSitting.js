@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+/* Returns paragraph with information about date, time, and number of guests in the users booking */
 const ChosenSitting = (props) => {
             
         return(

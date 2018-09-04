@@ -1,5 +1,5 @@
 import React from 'react';
-import EditPopUp from '../components/editPopUp';
+import EditPopUp from './editPopUp';
 import moment from 'moment';
 
 class AdminPage extends React.Component {
@@ -17,8 +17,8 @@ class AdminPage extends React.Component {
             EarlySelected: null,
             LateSelected: null
 		};
-
-		this.handleChange = this.handleChange.bind(this);
+/* Bind events to the functions to be called, that are being refered without method () */
+		this.handleChangeDatePicker = this.handleChangeDatePicker.bind(this);
 		this.handleEdit = this.handleEdit.bind(this);
 		this.changeGuestInfo = this.changeGuestInfo.bind(this);
 		this.showEarlyTime = this.showEarlyTime.bind(this);
@@ -26,106 +26,114 @@ class AdminPage extends React.Component {
 
 	}
 
-	componentDidMount(){
-		window.getEditPopUpWithInfo = (guestId, bookingId, date, name, time, guests, email, phone) => {
+/* Runs getEditPopUpWithInfo function after the rendering is done.
+Window is being used in this case because the function is called inside template literals ( `` ).
+Inside template literals 'this' looses its connection the class AdminPage. 
+Instead, 'this' points on window. 
+ */
+componentDidMount(){
+	window.getEditPopUpWithInfo = (guestId, bookingId, date, name, time, guests, email, phone) => {
+		this.setState({
+			name: name,
+			email: email,
+			phoneNumber: phone,    			
+			startDate: date,
+			time: time,
+			guests: guests,
+			guestId: guestId,
+			bookingId: bookingId,
+		});
 
-			this.setState({
-      			name: name,
-      			email: email,
-      			phoneNumber: phone,    			
-      			startDate: date,
-      			time: time,
-      			guests: guests,
-   				guestId: guestId,
-      			bookingId: bookingId,
-    		});
-				console.log(guestId, bookingId, date, name, time, guests, email, phone);
-				let modal = document.getElementById('myModal');
-				modal.style.display = "block";
-		}
+		let modal = document.getElementById('myModal');
+		modal.style.display = "block";
+	}
 
-		window.deleteBooking = (id) => {
-
+	window.deleteBooking = (id) => {
 		window.confirm('Are you sure you want to delete this booking?');
-		let bookingID = {
-			id: id,
-		}
-		
-		return fetch('http://localhost:8888/phpfiles/adminDelete.php', {
-	      method: "POST",
-	      mode: "no-cors",
-	      body: JSON.stringify(bookingID)
-	      })
-		    .then((response) => {
-		      console.log(bookingID)
-		      this.getBookings();
-
-		    })
-		    .catch((error) => {
-		      console.error(error);
-		    })
-		}
-
-	}
-
-	changeGuestInfo(e){
-		this.setState({ 
-        	[e.target.name]: e.target.value 
-    	});
-	}
-
-	handleEdit(e){
-   		e.preventDefault();
-		this.editBooking();
-	}
-
-	editBooking(){		
-	    let editedInfo = {
-	        name: this.state.name,
-	        email: this.state.email,
-	        phoneNumber: this.state.phoneNumber,
-	        guestId: this.state.guestId,
-	        startDate: this.state.startDate,
-      		time: this.state.time,
-      		guests: this.state.guests,
-      		bookingId: this.state.bookingId
-	    }
-
-	    console.log(editedInfo);
-
-	     return fetch('http://localhost:8888/phpfiles/adminUpdate.php', {
-	      method: "POST",
-	      mode: "no-cors",
-	      body: JSON.stringify(editedInfo)
-	      })
-	      .then((response) => {
-	        console.log(editedInfo);
-	        this.closePopUp();
-	        this.getBookings();
-	      })
-	      .catch((error) => {
-	        console.error(error);
-	      })
-	  }
-
-	getBookings(){
-	   fetch('http://localhost:8888/phpfiles/personapi.php')
-	   .then((response) => response.json())
-	   .then((response) => {
-	   	console.log(response);
-	      this.listBookings(response);
+			let bookingID = {
+				id: id,
+			}
+	
+	return fetch('http://localhost:8888/phpfiles/adminDelete.php', {
+	    method: "POST",
+	    mode: "no-cors",
+	    body: JSON.stringify(bookingID)
+	    })
+	    .then((response) => {
+	      this.getBookings();
 	    })
 	    .catch((error) => {
 	      console.error(error);
 	    })
 	}
 
-	componentWillMount(){
-		this.getBookings();
-	}
+}
 
+/* Handles guest information from inputfielts. 
+Target indicates which inputfield is being typed in. */
+changeGuestInfo(e){
+	this.setState({ 
+    	[e.target.name]: e.target.value 
+	});
+}
+
+handleEdit(e){
+	e.preventDefault();
+	this.editBooking();
+}
+
+/* All information from an edited booking is declared inside an object called editedInfo. 
+Thanks to JSON.stringify the object is passed as a string into database (through adminUpdate.php) */
+editBooking(){		
+    let editedInfo = {
+        name: this.state.name,
+        email: this.state.email,
+        phoneNumber: this.state.phoneNumber,
+        guestId: this.state.guestId,
+        startDate: this.state.startDate,
+  		time: this.state.time,
+  		guests: this.state.guests,
+  		bookingId: this.state.bookingId
+    }
+
+    return fetch('http://localhost:8888/phpfiles/adminUpdate.php', {
+	    method: "POST",
+	    mode: "no-cors",
+	    body: JSON.stringify(editedInfo)
+	    })
+    	.then((response) => {
+	        this.closePopUp();
+	        this.getBookings(); /* New fetch when the POST is succesfull */
+      	})
+      	.catch((error) => {
+        console.error(error);
+      	})
+}
+
+/* Fetches all bookings from database, with complete info */
+
+getBookings(){
+	fetch('http://localhost:8888/phpfiles/personapi.php')
+	.then((response) => response.json())
+
+   /* When fetch is succesfull then bookinginformation is being send to function 'listBookings' */
+   .then((response) => {
+      this.listBookings(response); /* Response = bookinginformation object */
+    })
+    .catch((error) => {
+      console.error(error);
+    })
+}
+
+/* Before render fetch all bookings */ 
+componentWillMount(){
+	this.getBookings();
+}
+
+/* Recieves response with bookinginformation and loops through it.
+   Generates table row for each booking.
+   Dataset is being used to be able to pass multiple values into getEditPopUpWithInfo function */
 	listBookings(response){
-		console.log('in search of ID', response)
 		let tableBody = document.getElementById('tableBody');
 		let content = ``;
 
@@ -163,35 +171,36 @@ class AdminPage extends React.Component {
 		tableBody.innerHTML = content;
 	} // listBookings
 
-
+/* Closes PopUp edit box by changing styling to display none when clicked close */
 closePopUp(){	
 		let modal = document.getElementById('myModal');
 		modal.style.display = "none";
 	}
 
-
-handleChange(date){
+/* HandleChangeDatePicker updates the initial state with selected date from datepicker when clicked */
+handleChangeDatePicker(date){
 	this.setState({
 	  startDate: date.format('YYYY-MM-DD'),
 	});
 
-    let bookingDate = date.format('YYYY-MM-DD');
-
-	 fetch('http://localhost:8888/phpfiles/bokningsapi.php?date=' + bookingDate)
+ /* Fetching all booking information from database based on chosen date */
+	 fetch('http://localhost:8888/phpfiles/bokningsapi.php?date=' + this.state.startDate)
     .then((response) => response.json())
     .then((response) => {
       this.checkAvailableSittings(response);
-
     })
     .catch((error) => {
       console.error(error);
     })
 
 }
+
+/*Funciton receives value "18:00:00" when earlybutton is clicked. 
+And sets new state for time,
+also changes button styling to be able to see which one is clicked/choosen. */
 showEarlyTime(){	
 	let EarlyButton = document.getElementById('EarlyButton');
     let EarlyButtonValue = EarlyButton.value; 
-     console.log(EarlyButtonValue);
 
      this.setState({ 
         	time: EarlyButtonValue,
@@ -200,6 +209,10 @@ showEarlyTime(){
     	});
 }
 
+
+/*Funciton receives value "21:00:00" when latebutton is clicked. 
+And sets new state for time,
+also changes button styling to be able to see which one is clicked/choosen. */
 showLateTime(){
 	let LateButton = document.getElementById('LateButton');
     let LateButtonValue = LateButton.value; 
@@ -213,6 +226,10 @@ showLateTime(){
     	});
 }
 
+
+/* Calculates available sittings based on the response from the fetch
+ (that happens in handleChangeDatePicker).
+ And changes states for timebuttons to be shown or not */
 checkAvailableSittings (response){
  console.log(response.earlyBookings);
 
@@ -253,11 +270,12 @@ checkAvailableSittings (response){
         return(
           <div id="admin">
           <EditPopUp modelID='myModal' spanID='close' event={() => this.closePopUp()} 
-           handleChange={this.handleChange} Change={this.changeGuestInfo} Edit={this.handleEdit}
+           handleChangeDatePicker={this.handleChangeDatePicker} changeGuestInfo={this.changeGuestInfo} Edit={this.handleEdit}
            showEarlyTime={this.showEarlyTime} showLateTime={this.showLateTime}
            Date={this.state.startDate} Guests={this.state.guests} Time={this.state.time}
            Name={this.state.name} Email={this.state.email} PhoneNumber={this.state.phoneNumber} 
            EarlyButtonID='EarlyButton' LateButtonID='LateButton' EarlySelected={this.state.EarlySelected} LateSelected={this.state.LateSelected}/>
+           
            <h2>Admin</h2>
 	           <table className="table table-hover">
 					<thead>

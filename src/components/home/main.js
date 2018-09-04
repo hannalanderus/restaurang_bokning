@@ -2,10 +2,11 @@ import React from 'react';
 import ScrollDown from './scrollDown';
 import TheRestaurant from './theRestaurant';
 import { Link } from 'react-router-dom';
-import Booking from './booking';
+import Booking from '../booking/booking.js';
 import TheBar from './theBar';
-import Footer from './footer';
+import Footer from '../footer';
 
+/* Displays the complete main section on landningpage */
 function StartPageMain() {
   return (
 

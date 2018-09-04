@@ -1,10 +1,11 @@
 import React from 'react';
-import StartPage from './home';
+import StartPage from '../home/home.js';
 import {
   Link
 } from 'react-router-dom';
 
-
+/* Creates a pop up with booking confirmation.
+When the pop up is closed it links the user to startpage */
 const ConfirmationPopUp = (props) => {
 	return(  
       <div id={props.modelID} className="modal">

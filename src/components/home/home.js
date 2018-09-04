@@ -8,7 +8,7 @@ import {
   Link
 } from 'react-router-dom'
 
-
+/* Displays the complete landning page */
 class StartPage extends React.Component {
     render() {
         
