@@ -104,7 +104,7 @@ footer li {
 
 /*----- Headers ----- */
 #headerContent{
- background-image: url("./images/avocado.jpg");
+ background-image: url("./components/images/avocado.jpg");
  height: 700px;
  background-position: center;
  background-repeat: no-repeat;
@@ -116,7 +116,7 @@ footer li {
 }
 
 #headerContact {
-     background-image: url("./images/dinner.jpg");
+     background-image: url("./components/images/dinner.jpg");
      height: 700px;
      background-position: center;
      background-repeat: no-repeat;
@@ -127,7 +127,7 @@ footer li {
  }
 
 #headerBooking {
- background-image: url("./images/bartendinghero.jpg");
+ background-image: url("./components/images/bartendinghero.jpg");
  height: 700px;
  background-position: center;
  background-repeat: no-repeat;
@@ -368,7 +368,7 @@ h5 {
     margin-top: 5%;
 }
 .map {
- background-image: url("./images/mapjuanalaloca.jpg");
+ background-image: url("./components/images/mapjuanalaloca.jpg");
  height: 400px;
  width: 90%;
  margin: 0 auto;

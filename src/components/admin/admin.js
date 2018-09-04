@@ -133,13 +133,12 @@ componentWillMount(){
 /* Recieves response with bookinginformation and loops through it.
    Generates table row for each booking.
    Dataset is being used to be able to pass multiple values into getEditPopUpWithInfo function */
-	listBookings(response){
-		let tableBody = document.getElementById('tableBody');
-		let content = ``;
+listBookings(response){
+	let tableBody = document.getElementById('tableBody');
+	let content = ``;
 
-		for(let booking of response){
-	
-			content += `<tr class="table-light">
+	for(let booking of response){
+		content += `<tr class="table-light">
 			<td>${booking.datum}</td>
 			<td>${booking.namn}</td>
 			<td>${booking.tid}</td>
@@ -147,29 +146,30 @@ componentWillMount(){
 			<td>${booking.epost}</td>
 			<td>${booking.telefon}</td>
 			<td><button class="adminButton" id=${booking.person_id} 
-						data-booking=${booking.id}
-						data-date=${booking.datum} 
-						data-name=${booking.namn} 
-						data-time=${booking.tid} 
-						data-guests=${booking.antal_personer}
-						data-email=${booking.epost}
-						data-phone=${booking.telefon}
+											data-booking=${booking.id}
+											data-date=${booking.datum} 
+											data-name=${booking.namn} 
+											data-time=${booking.tid} 
+											data-guests=${booking.antal_personer}
+											data-email=${booking.epost}
+											data-phone=${booking.telefon}
 			onClick="getEditPopUpWithInfo(	this.id,
-									this.dataset.booking,
-									this.dataset.date, 
-									this.dataset.name, 
-									this.dataset.time,
-									this.dataset.guests,
-									this.dataset.email,
-									this.dataset.phone)"><i class="fas fa-edit fa-2x"></i></button></td>
+											this.dataset.booking,
+											this.dataset.date, 
+											this.dataset.name, 
+											this.dataset.time,
+											this.dataset.guests,
+											this.dataset.email,
+											this.dataset.phone)">
+											<i class="fas fa-edit fa-2x"></i></button></td>
 			<td><button class="adminButton" id=${booking.id} onClick="deleteBooking(this.id)"><i class="fas fa-trash-alt fa-2x"></i>
 			</button></td>
 			</tr>
 			`;
-		} // for
+	} // for
 
-		tableBody.innerHTML = content;
-	} // listBookings
+	tableBody.innerHTML = content;
+} // listBookings
 
 /* Closes PopUp edit box by changing styling to display none when clicked close */
 closePopUp(){	
