@@ -11,8 +11,10 @@ const EditPopUp = (props) => {
         <div className="modal-content">
           <span id={props.spanID} onClick={props.event} className="close">&times;</span>
             <div className="flex">
+                <div className="bookingInfoWhenEdit">
+                  <p>Sitting booked for {props.Guests} guests on the {props.Date} at {props.Time}</p>
+                </div>
                <div>
-                <p>Sitting booked for {props.Guests} guests on the {props.Date} at {props.Time}</p>
                 <label htmlFor="guests">Number of guests</label>
                  <form>   
                   <select id='guestsAmount' name="guests" className="form-control" onChange={props.Change}>
@@ -32,13 +34,16 @@ const EditPopUp = (props) => {
                     onChange={props.handleChange} />
 
                   <label>Time</label>
-                   <button id={props.EarlyButtonID} onClick={props.showEarlyTime} value="18:00:00">18:00</button>
-                   <button id={props.LateButtonID} onClick={props.showLateTime} value="21:00:00">21:00</button>
+                   <button className={props.EarlySelected} id={props.EarlyButtonID} onClick={props.showEarlyTime} value="18:00:00">18:00</button>
+                   <button className={props.LateSelected} id={props.LateButtonID} onClick={props.showLateTime} value="21:00:00">21:00</button>
                 </div>
 
-               <form id="reservationInfo" onSubmit={props.Edit}>     
+               <form id="reservationInfo" onSubmit={props.Edit}> 
+                    <label>Name</label>    
                     <input type="text" name="name" placeholder={props.Name} value={props.value} onChange={props.Change} />
+                    <label>Email</label>
                     <input type="text" name="email" placeholder={props.Email} onChange={props.Change} />
+                    <label>Phone Number</label>
                     <input type="text" name="phoneNumber" placeholder={props.PhoneNumber} onChange={this.Change} />
                     <input type="submit" value="Save" className="submitButton" />
               </form>

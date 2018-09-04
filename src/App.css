@@ -19,16 +19,31 @@ p {
 .flex{
     display:flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 label {
     font-family: Palatino Linotype;
-    padding-bottom: 5px;
     font-weight: bold;
+    text-align: left;
 }
 
+button:focus, select:focus, input:focus{
+  outline: 0;
+}
 
+#flexwhut{
+  display: flex;
+}
 
+#checkbox input {
+  width: 20px;
+}
+
+#termsText {
+  width: 72%;
+  text-align: left;
+}
 
 /*----- Navigation ----- */
 nav{
@@ -384,8 +399,9 @@ h5 {
     background-color: rgba(153,102,0,0.15);
     width: 80%;
     margin: 0 auto;
-    min-height: 400px;
+    min-height: 300px;
     padding-top: 5%;
+    padding-bottom: 5%;
 }
 #guestsAmount {
     height: 50px;
@@ -412,7 +428,7 @@ input {
   justify-content: space-between;
 }
 
-#EarlyButtonID, #LateButtonID {
+#EarlyButtonID, #LateButtonID, #EarlyButton, #LateButton  {
  height: 45px;
  width: 48%;
  font-size: 1.3em;
@@ -421,17 +437,52 @@ input {
  border-radius: 5px;
  border: 1px solid rgb(166, 166, 166);
  margin-bottom: 5%; 
+ -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
+ -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
+  box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
+  cursor: pointer;
 }
+
+.bookingButtonWrapper{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  
+}
+
+.bookingButton{
+  height: 45px;
+  width: 300px;
+  font-size: 1.3em;
+  font-family: Georiga;
+  border-radius: 5px;
+  margin-top: 20%;
+  background-color: rgba(153,102,0,0.15);
+  -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
+  -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
+  box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
+  cursor: pointer;
+
+}
+
 
 /* Selected time button changes to green when clicked */
 .selected {
   background: #25cea4 !important;
 }
 
+.submitButtonDiv {
+  display: flex;
+  width: 337px;
+  justify-content: right;
+}
 .submitButton {
-    margin-left: 245px;
-    width: 30%;
+    width: 100%;
     border-color: #25cea4;
+    -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
+    -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
+    box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
+    cursor: pointer;
 }
 .submitButton:hover {
     background:#25cea4;
@@ -472,7 +523,56 @@ input {
     background-color: rgba(0,0,0,0.4); 
 }
 
+.table {
+   width: 100%;
+   margin-bottom: 1rem;
+   text-align: center;
+   background-color: transparent;
+   border-collapse: collapse;
+   box-sizing: border-box;
+   border-spacing: 2px;
+   border-color: grey;
+}
+
+.table-primary {
+   background-color: #2c3e50;
+   color: #FFF;
+}
+
+tr {
+   display: table-row;
+
+}
+
+td {
+   padding: 15px;
+}
+
+th {
+   padding: 20px;
+}
+.table-light {
+   background-color: #f0e8d9;
+}
+#admin {
+   max-width: 1140px;
+   margin: 0 auto;
+}
+.adminButton{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 /* Modal Content/PopUp */
+
+.bookingInfoWhenEdit{
+  width: 100%;
+  text-align: center;
+  margin: 10px 0px 30px 0px;
+  font-size: 1.2em;
+}
+
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto; 
@@ -500,3 +600,4 @@ input {
     text-decoration: none;
     cursor: pointer;
 }
+

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 const Guests = (props) => {
 		return(
 			<div> 
-				<label htmlFor="guests">Number of people</label>
+				<label>Number of people</label>
 				 <form> 	
 					<select id={props.SelectID} name="guests" className="form-control" onChange={props.event}>
 					      <option value="1">1</option>

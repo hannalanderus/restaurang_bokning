@@ -1,6 +1,8 @@
 import React from 'react';
 import ScrollDown from './scrollDown';
 import TheRestaurant from './theRestaurant';
+import { Link } from 'react-router-dom';
+import Booking from './booking';
 import TheBar from './theBar';
 import Footer from './footer';
 
@@ -9,6 +11,9 @@ function StartPageMain() {
 
           <div id="mainWrapper">
             <main id="mainContent">
+              <div className="bookingButtonWrapper">
+                <Link to="/Booking"><button className="bookingButton">Book a table</button></Link>
+              </div>
               <div id="restaurntImage">
                 <img src={require("../images/juanabar3.png")}/>
               </div>

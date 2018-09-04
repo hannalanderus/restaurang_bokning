@@ -13,7 +13,9 @@ class AdminPage extends React.Component {
             email: "",
             phoneNumber: "",
             guestId: "",
-            bookingId: ""
+            bookingId: "",
+            EarlySelected: null,
+            LateSelected: null
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -129,14 +131,14 @@ class AdminPage extends React.Component {
 
 		for(let booking of response){
 	
-			content += `<tr>
+			content += `<tr class="table-light">
 			<td>${booking.datum}</td>
 			<td>${booking.namn}</td>
 			<td>${booking.tid}</td>
 			<td>${booking.antal_personer}</td>
 			<td>${booking.epost}</td>
 			<td>${booking.telefon}</td>
-			<td><button id=${booking.person_id} 
+			<td><button class="adminButton" id=${booking.person_id} 
 						data-booking=${booking.id}
 						data-date=${booking.datum} 
 						data-name=${booking.namn} 
@@ -151,8 +153,9 @@ class AdminPage extends React.Component {
 									this.dataset.time,
 									this.dataset.guests,
 									this.dataset.email,
-									this.dataset.phone)">Edit</button></td>
-			<td><button id=${booking.id} onClick="deleteBooking(this.id)">Delete</button></td>
+									this.dataset.phone)"><i class="fas fa-edit fa-2x"></i></button></td>
+			<td><button class="adminButton" id=${booking.id} onClick="deleteBooking(this.id)"><i class="fas fa-trash-alt fa-2x"></i>
+			</button></td>
 			</tr>
 			`;
 		} // for
@@ -191,7 +194,9 @@ showEarlyTime(){
      console.log(EarlyButtonValue);
 
      this.setState({ 
-        	time: EarlyButtonValue 
+        	time: EarlyButtonValue,
+        	EarlySelected: 'selected',
+        	LateSelected: null
     	});
 }
 
@@ -201,7 +206,10 @@ showLateTime(){
      console.log(LateButtonValue);
 
      this.setState({ 
-        	time: LateButtonValue 
+        	time: LateButtonValue,
+        	LateSelected: 'selected',
+        	EarlySelected: null
+
     	});
 }
 
@@ -241,6 +249,7 @@ checkAvailableSittings (response){
 
 
 	render() {
+		
         return(
           <div id="admin">
           <EditPopUp modelID='myModal' spanID='close' event={() => this.closePopUp()} 
@@ -248,15 +257,15 @@ checkAvailableSittings (response){
            showEarlyTime={this.showEarlyTime} showLateTime={this.showLateTime}
            Date={this.state.startDate} Guests={this.state.guests} Time={this.state.time}
            Name={this.state.name} Email={this.state.email} PhoneNumber={this.state.phoneNumber} 
-           EarlyButtonID='EarlyButton' LateButtonID='LateButton' />
+           EarlyButtonID='EarlyButton' LateButtonID='LateButton' EarlySelected={this.state.EarlySelected} LateSelected={this.state.LateSelected}/>
            <h2>Admin</h2>
-	           <table>
+	           <table className="table table-hover">
 					<thead>
-						<tr>
+						<tr className="table-primary">
 							<th>Date</th>
 							<th>Name</th>
 							<th>Time</th>
-							<th>Persons</th>
+							<th>Guests</th>
 							<th>Email</th>
 							<th>Phone</th>
 							<th>Edit</th>
